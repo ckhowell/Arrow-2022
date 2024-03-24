@@ -5,6 +5,12 @@
  * Theme styles
 */
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+.cardstretch {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
 .badge.badge-top {
   position: absolute;
   top: -0.75rem;
