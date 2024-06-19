@@ -7,6 +7,7 @@ avatar: assets/img/avatar/jason-howes-avatar.png
 image: https://source.unsplash.com/random/700×230/?selling&orientation=landscape
 category: Sales
 logo: logo.svg
+unsplash: dW6dFBoHUu4
 ---
 For many years, a salesperson’s focus has been transactional rather than value driven. While this may have formerly looked like a sure-fire way to win a sale, it was really a fast-track to losing sales volume and an eventual decline in market share. 
 

@@ -9,6 +9,7 @@ category: Recruitment
 include_video: true
 video: https://www.youtube.com/embed/S0fFnw_eFBE
 logo: logo.svg
+unsplash: B3UFXwcVbc4
 ---
 
 ### Let’s face the fact that hiring a quality sales professional is hard work; it takes a lot of time and investment, so you must onboard well if they don’t tick all your boxes. Maybe they were the best candidate at the time, and you needed to fill the seat urgently.

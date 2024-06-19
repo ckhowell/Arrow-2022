@@ -9,6 +9,7 @@ category: Best Practices
 include_video: false
 video: 
 logo: logo.svg
+unsplash: ECGv8s2IPG0
 ---
 
 ## Have you hired a new salesperson recently? Or are you implementing a new product segment or growth strategy? 

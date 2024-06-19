@@ -9,6 +9,7 @@ category: Sales People
 include_video: false
 video:
 logo: logo.svg
+unsplash: qhfxY3X6JV0
 ---
 
 > Let us help you uncover some critical areas and opportunities. Did you know that two dozen variables can determine the skills, experience, capabilities, sales mindset required for salespeople to succeed?
