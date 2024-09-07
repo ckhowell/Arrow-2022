@@ -9,7 +9,7 @@ category: Sales
 include_video: true
 video: https://www.youtube.com/embed/S0fFnw_eFBE
 logo: logo.svg
-unsplash: B3UFXwcVbc4
+unsplash: wD1LRb9OeEo
 ---
 
 ### Building a high-performance sales culture is similar to cooking a delicious meal. If you miss some vital steps, do too much of this, or not enough of that, the meal will fail, leaving a bad taste in your mouth. 
@@ -23,6 +23,7 @@ Plan. (You're nicked if you don't; scattergun will only get you so far) Keep it 
 
 Think of textures when you're cooking meals. Ensure your tone and powerful sales messaging are outcome-focused. This will make your prospect enjoy your time and want to know more, not avoid booking a 📅.
 
-Please watch this short video as we unpack our Arrow process. 
+[Please watch this short video as we unpack our Arrow process.]
+(https://www.youtube.com/watch?v=7v5599Izexc)
 
 If you try to cook too quickly, rush or miss some vital ingredients, your sales training and team development will boil over, leaving a messy and expensive cleanup bill. (Nobody likes having to clean up!) 
