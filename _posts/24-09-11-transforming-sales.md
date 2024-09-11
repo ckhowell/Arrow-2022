@@ -12,7 +12,7 @@ logo: logo.svg
 unsplash: RKFO2d6Jio8
 ---
 
-*Posted by TimberTrader News Editor | 3rd August, 2024 | News Products, Retailers, Technology Innovative Strategies and Cutting-Edge Technology Redefine Sales Performance. By Campbell McInnes*
+Posted by TimberTrader News Editor | 3rd August, 2024 | News Products, Retailers, Technology Innovative Strategies and Cutting-Edge Technology Redefine Sales Performance. By Campbell McInnes
 
 
 ### In an increasingly competitive business landscape, the traditional methods of recruitment and sales training are proving insufficient. Enter Arrow Executive Sales, an Australian company that has distinguished itself by blending science and technology with strategic analysis and sales enablement to redefine what it means to cultivate a high-performing sales team.
