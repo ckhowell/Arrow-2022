@@ -9,7 +9,7 @@ category: Sales
 include_video: true
 video: https://www.youtube.com/embed/S0fFnw_eFBE
 logo: logo.svg
-unsplash: 5fNmWej4tAA
+unsplash: pNGJpcrbfM4
 ---
 
 ### Simply put, there is a significant shortage of sales talent across most industries, and addressing this issue is crucial. Currently, the average tenure of a salesperson is only 17 months, indicating a concerning trend of decreasing retention rates each year.
