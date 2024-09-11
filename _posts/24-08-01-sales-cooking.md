@@ -23,7 +23,4 @@ Plan. (You're nicked if you don't; scattergun will only get you so far) Keep it 
 
 Think of textures when you're cooking meals. Ensure your tone and powerful sales messaging are outcome-focused. This will make your prospect enjoy your time and want to know more, not avoid booking a 📅.
 
-[Please watch this short video as we unpack our Arrow process.]
-(https://www.youtube.com/watch?v=7v5599Izexc)
-
 If you try to cook too quickly, rush or miss some vital ingredients, your sales training and team development will boil over, leaving a messy and expensive cleanup bill. (Nobody likes having to clean up!) 
