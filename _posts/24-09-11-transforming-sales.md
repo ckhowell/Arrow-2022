@@ -9,9 +9,8 @@ category: Sales
 include_video: true
 video: 
 logo: logo.svg
-unsplash: BtoUjLUtPnQ
+unsplash: nd83DgVp4Oo
 ---
-# TRANSFORMING SALES EXCELLENCE IN AUSTRALIA AND NZ
 
 Posted by [TimberTrader News Editor](https://www.timbertradernews.com/author/ttn-editor/ "Posts by TimberTrader News Editor") | 3rd August, 2024 | [News](https://www.timbertradernews.com/category/news/), [Products](https://www.timbertradernews.com/category/products/), [Retailers](https://www.timbertradernews.com/category/retailers/), [Technology](https://www.timbertradernews.com/category/technology/)
 
@@ -27,8 +26,9 @@ On average, companies invest between 2% and 5% of payroll on sales training. For
 
 In an industry like timber and forest products, where selling new products presents unique challenges, Arrow’s approach offers a significant competitive edge.
 
-(https://www.arrowexec.com.au/assets/img/articles/001.png)
-**Above:** *The sales percentile is important to compare against the best global practice and two. 4 million salespeople.*
+![image]({{ site.baseurl }}/assets/img/articles/001.png)
+
+*Above: The sales percentile is important to compare against the best global practice and two. 4 million salespeople.*
 
 
 
@@ -52,8 +52,9 @@ Next, Arrow focuses on sales enablement, equipping teams with the tools and know
 
 
 
-(https://www.arrowexec.com.au/assets/img/articles/002.png)
-**Above:** *Desire (grit) and commitment (doing what it takes to succeed outside comfort zone) are two critical areas we assess.*
+![image](https://www.arrowexec.com.au/assets/img/articles/002.png)
+
+*Above:: Desire (grit) and commitment (doing what it takes to succeed outside comfort zone) are two critical areas we assess.*
 
 
 
@@ -73,8 +74,9 @@ This comparative analysis helps pinpoint where a salesperson may be struggling a
 
 
 
-(https://www.arrowexec.com.au/assets/img/articles/003.png)
-**Above:** *Only 32% of salespeople have an extrinsic motivation. (Extrinsic salespeople are more suited to BDM and leadership roles for high growth).*
+![image](https://www.arrowexec.com.au/assets/img/articles/003.png)
+
+*Above: Only 32% of salespeople have an extrinsic motivation. (Extrinsic salespeople are more suited to BDM and leadership roles for high growth).*
 
 
 
@@ -90,7 +92,7 @@ Arrow Executive Sales takes the guesswork out of sales success and is redefining
 
 With Jason Howes at the helm, businesses can trust that they are in capable hands, ready to navigate the challenges of modern sales with confidence and precision.
 
-(https://www.arrowexec.com.au/assets/img/articles/004.png)
+![image](https://www.arrowexec.com.au/assets/img/articles/004.png)
 
 
 

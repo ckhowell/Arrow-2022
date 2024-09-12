@@ -9,7 +9,7 @@ category: Sales
 include_video: true
 video: 
 logo: logo.svg
-unsplash: nd83DgVp4Oo
+unsplash: JKjBsuKpatU
 ---
 
 #### A four-step guide to get your sales team firing. **By Jason Howes**
