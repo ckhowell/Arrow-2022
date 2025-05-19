@@ -1,6 +1,7 @@
 import fs from 'fs'
 import config from './config.js'
 import { execSync } from 'child_process'
+import stylelint from 'stylelint'
 import autoprefixer from 'autoprefixer'
 import postcss from 'postcss'
 import cssnano from 'cssnano'
@@ -12,6 +13,26 @@ const log = configureLogger('Styles')
 // Determine the desired operation based on command line argument
 const operation = process.argv[2]
 
+// Function to lint SCSS files using stylelint
+const lintScss = async () => {
+  log.info('Linting SCSS...')
+  try {
+    const result = await stylelint.lint({
+      files: `${config.path.scss}/**/*.scss`,
+      configFile: '.stylelintrc.json',
+      formatter: 'string',
+    })
+
+    if (result.errored) {
+      console.log(result.report) // Log errors if linting failed
+      throw new Error('Linting errors found')
+    } else {
+      log.success('Lint SCSS') // Log success if no errors found
+    }
+  } catch (error) {
+    throw error // Rethrow error to be handled by the caller
+  }
+}
 
 // Function to compile SCSS to CSS using Sass and enhance CSS with PostCSS plugins
 const compileSass = async () => {
