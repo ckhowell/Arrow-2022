@@ -38,8 +38,6 @@
     "prettier": "^3.3.3",
     "rollup": "^4.24.0",
     "sass": "^1.80.3",
-    "stylelint": "^16.10.0",
-    "stylelint-config-twbs-bootstrap": "^15.1.0",
     "terser": "^5.36.0"
   },
   "dependencies": {
