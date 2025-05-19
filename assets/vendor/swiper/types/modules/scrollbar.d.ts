@@ -1,5 +1,5 @@
-import { CSSSelector } from '../shared';
-import Swiper from '../swiper-class';
+import type { CSSSelector } from '../shared.d.ts';
+import type Swiper from '../swiper-class.d.ts';
 
 export interface ScrollbarMethods {
   /**
@@ -123,4 +123,18 @@ export interface ScrollbarOptions {
    * @default 'swiper-scrollbar-disabled'
    */
   scrollbarDisabledClass?: string;
+
+  /**
+   * CSS class name set to scrollbar in horizontal Swiper
+   *
+   * @default 'swiper-scrollbar-horizontal'
+   */
+  horizontalClass?: string;
+
+  /**
+   * CSS class name set to scrollbar in vertical Swiper
+   *
+   * @default 'swiper-scrollbar-vertical'
+   */
+  verticalClass?: string;
 }

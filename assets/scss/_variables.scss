@@ -26,7 +26,7 @@ $gray-500:                    #b4b7c9 !default;
 $gray-600:                    #9397ad !default;
 $gray-700:                    #565973 !default;
 $gray-800:                    #33354d !default;
-$gray-900:                    #061a5f !default;
+$gray-900:                    #1A2959 !default;
 $black:                       #000 !default;
 
 // Theme colors
@@ -37,7 +37,7 @@ $success:                     #22c55e !default;
 $warning:                     #ffba08 !default;
 $danger:                      #ef4444 !default;
 $light:                       $white !default;
-$dark:                        #061a5f !default;
+$dark:                        #1A2959 !default;
 
 
 // Bootstrap's $theme-colors map
@@ -122,7 +122,7 @@ $body-color:                                $gray-800 !default;
 $body-bg:                                   $white !default;
 $text-muted:                                var(--#{$prefix}gray-600) !default;
 
-$body-dark-mode-color:                      #061a5f !default;
+$body-dark-mode-color:                      #1A2959 !default;
 $body-dark-mode-bg:                         $gray-900 !default;
 
 

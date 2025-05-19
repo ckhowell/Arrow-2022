@@ -1823,6 +1823,25 @@ module.exports = {
 
 /***/ }),
 
+/***/ "6b0d":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+// runtime helper for setting properties on components
+// in a tree-shakable way
+exports.default = (sfc, props) => {
+    const target = sfc.__vccOpts || sfc;
+    for (const [key, val] of props) {
+        target[key] = val;
+    }
+    return target;
+};
+
+
+/***/ }),
+
 /***/ "6eeb":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1880,8 +1899,6 @@ __webpack_require__("e01a");
 __webpack_require__("d3b7");
 
 __webpack_require__("d28b");
-
-__webpack_require__("e260");
 
 __webpack_require__("3ca3");
 
@@ -4850,16 +4867,16 @@ if (typeof window !== 'undefined') {
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/babel-loader/lib!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--0-1!./src/components/LightGallery.vue?vue&type=template&id=47173610
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-1!./node_modules/vue-loader-v16/dist/templateLoader.js??ref--7!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader-v16/dist??ref--0-1!./src/components/LightGallery.vue?vue&type=template&id=47173610&ts=true
 
 var _hoisted_1 = {
   ref: "container",
   class: "lightgallery-vue"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", _hoisted_1, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderSlot"])(_ctx.$slots, "default")], 512);
+  return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementBlock"])("div", _hoisted_1, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderSlot"])(_ctx.$slots, "default")], 512);
 }
-// CONCATENATED MODULE: ./src/components/LightGallery.vue?vue&type=template&id=47173610
+// CONCATENATED MODULE: ./src/components/LightGallery.vue?vue&type=template&id=47173610&ts=true
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.keys.js
 var es_object_keys = __webpack_require__("b64b");
@@ -5863,6 +5880,8 @@ var lightGalleryCoreSettings = {
   defaultCaptionHeight: 0,
   ariaLabelledby: '',
   ariaDescribedby: '',
+  resetScrollPosition: true,
+  hideScrollbar: false,
   closable: true,
   swipeToClose: true,
   closeOnTap: true,
@@ -5871,6 +5890,7 @@ var lightGalleryCoreSettings = {
   loop: true,
   escKey: true,
   keyPress: true,
+  trapFocus: true,
   controls: true,
   slideEndAnimation: true,
   hideControlOnEnd: false,
@@ -5912,7 +5932,8 @@ var lightGalleryCoreSettings = {
     previousSlide: 'Previous slide',
     nextSlide: 'Next slide',
     download: 'Download',
-    playVideo: 'Play video'
+    playVideo: 'Play video',
+    mediaLoadingFailed: 'Oops... Failed to load content...'
   }
 };
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
@@ -5939,9 +5960,6 @@ var es_object_to_string = __webpack_require__("d3b7");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.iterator.js
 var es_symbol_iterator = __webpack_require__("d28b");
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.iterator.js
-var es_array_iterator = __webpack_require__("e260");
-
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.iterator.js
 var es_string_iterator = __webpack_require__("3ca3");
 
@@ -5952,7 +5970,6 @@ var web_dom_collections_iterator = __webpack_require__("ddb0");
 var es_array_from = __webpack_require__("a630");
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/iterableToArray.js
-
 
 
 
@@ -5996,6 +6013,9 @@ function toConsumableArray_toConsumableArray(arr) {
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.replace.js
 var es_string_replace = __webpack_require__("5319");
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.promise.js
+var es_promise = __webpack_require__("e6cf");
+
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.map.js
 var es_array_map = __webpack_require__("d81d");
 
@@ -6004,9 +6024,6 @@ var es_array_splice = __webpack_require__("a434");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.match.js
 var es_string_match = __webpack_require__("466d");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.promise.js
-var es_promise = __webpack_require__("e6cf");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.to-string.js
 var es_regexp_to_string = __webpack_require__("25f0");
@@ -6390,7 +6407,11 @@ var lgQuery_lgQuery = /*#__PURE__*/function () {
     key: "prepend",
     value: function prepend(html) {
       this._each(function (el) {
-        el.insertAdjacentHTML('afterbegin', html);
+        if (typeof html === 'string') {
+          el.insertAdjacentHTML('afterbegin', html);
+        } else if (html instanceof HTMLElement) {
+          el.insertBefore(html.cloneNode(true), el.firstChild);
+        }
       });
 
       return this;
@@ -6509,6 +6530,9 @@ function $LG(selector) {
 
 
 
+
+
+
 var defaultDynamicOptions = ['src', 'sources', 'subHtml', 'subHtmlUrl', 'html', 'video', 'poster', 'slideName', 'responsive', 'srcset', 'sizes', 'iframe', 'downloadUrl', 'download', 'width', 'facebookShareUrl', 'tweetText', 'iframeTitle', 'twitterShareUrl', 'pinterestShareUrl', 'pinterestText', 'fbHtml', 'disqusIdentifier', 'disqusUrl']; // Convert html data-attribute to camalcase
 
 function convertToData(attr) {
@@ -6525,6 +6549,27 @@ function convertToData(attr) {
   return attr;
 }
 var utils = {
+  /**
+   * Fetches HTML content from a given URL and inserts it into a specified element.
+   *
+   * @param url - The URL to fetch the HTML content from.
+   * @param element - The DOM element (jQuery object) to insert the HTML content into.
+   * @param insertMethod - The method to insert the HTML ('append' or 'replace').
+   */
+  fetchCaptionFromUrl: function fetchCaptionFromUrl(url, element, insertMethod) {
+    // Fetch content from the URL
+    fetch(url).then(function (response) {
+      return response.text();
+    }).then(function (htmlContent) {
+      if (insertMethod === 'append') {
+        var contentDiv = "<div class=\"lg-sub-html\">".concat(htmlContent, "</div>");
+        element.append(contentDiv);
+      } else {
+        element.html(htmlContent);
+      }
+    });
+  },
+
   /**
    * get possible width and height from the lgSize attribute. Used for ZoomFromOrigin option
    */
@@ -6605,7 +6650,7 @@ var utils = {
   },
   getIframeMarkup: function getIframeMarkup(iframeWidth, iframeHeight, iframeMaxWidth, iframeMaxHeight, src, iframeTitle) {
     var title = iframeTitle ? 'title="' + iframeTitle + '"' : '';
-    return "<div class=\"lg-video-cont lg-has-iframe\" style=\"width:".concat(iframeWidth, "; max-width:").concat(iframeMaxWidth, "; height: ").concat(iframeHeight, "; max-height:").concat(iframeMaxHeight, "\">\n                    <iframe class=\"lg-object\" frameborder=\"0\" ").concat(title, " src=\"").concat(src, "\"  allowfullscreen=\"true\"></iframe>\n                </div>");
+    return "<div class=\"lg-media-cont lg-has-iframe\" style=\"width:".concat(iframeWidth, "; max-width:").concat(iframeMaxWidth, "; height: ").concat(iframeHeight, "; max-height:").concat(iframeMaxHeight, "\">\n                    <iframe class=\"lg-object\" frameborder=\"0\" ").concat(title, " src=\"").concat(src, "\"  allowfullscreen=\"true\"></iframe>\n                </div>");
   },
   getImgMarkup: function getImgMarkup(index, src, altAttr, srcset, sizes, sources) {
     var srcsetAttr = srcset ? "srcset=\"".concat(srcset, "\"") : '';
@@ -6686,7 +6731,21 @@ var utils = {
       videoClass = 'lg-has-html5';
     }
 
-    return "<div class=\"lg-video-cont ".concat(videoClass, "\" style=\"").concat(videoContStyle, "\">\n                <div class=\"lg-video-play-button\">\n                <svg\n                    viewBox=\"0 0 20 20\"\n                    preserveAspectRatio=\"xMidYMid\"\n                    focusable=\"false\"\n                    aria-labelledby=\"").concat(playVideoString, "\"\n                    role=\"img\"\n                    class=\"lg-video-play-icon\"\n                >\n                    <title>").concat(playVideoString, "</title>\n                    <polygon class=\"lg-video-play-icon-inner\" points=\"1,0 20,10 1,20\"></polygon>\n                </svg>\n                <svg class=\"lg-video-play-icon-bg\" viewBox=\"0 0 50 50\" focusable=\"false\">\n                    <circle cx=\"50%\" cy=\"50%\" r=\"20\"></circle></svg>\n                <svg class=\"lg-video-play-icon-circle\" viewBox=\"0 0 50 50\" focusable=\"false\">\n                    <circle cx=\"50%\" cy=\"50%\" r=\"20\"></circle>\n                </svg>\n            </div>\n            ").concat(dummyImg || '', "\n            <img class=\"lg-object lg-video-poster\" src=\"").concat(_poster, "\" />\n        </div>");
+    var _dummy = dummyImg;
+
+    if (typeof dummyImg !== 'string') {
+      _dummy = dummyImg.outerHTML;
+    }
+
+    return "<div class=\"lg-video-cont ".concat(videoClass, "\" style=\"").concat(videoContStyle, "\">\n                <div class=\"lg-video-play-button\">\n                <svg\n                    viewBox=\"0 0 20 20\"\n                    preserveAspectRatio=\"xMidYMid\"\n                    focusable=\"false\"\n                    aria-labelledby=\"").concat(playVideoString, "\"\n                    role=\"img\"\n                    class=\"lg-video-play-icon\"\n                >\n                    <title>").concat(playVideoString, "</title>\n                    <polygon class=\"lg-video-play-icon-inner\" points=\"1,0 20,10 1,20\"></polygon>\n                </svg>\n                <svg class=\"lg-video-play-icon-bg\" viewBox=\"0 0 50 50\" focusable=\"false\">\n                    <circle cx=\"50%\" cy=\"50%\" r=\"20\"></circle></svg>\n                <svg class=\"lg-video-play-icon-circle\" viewBox=\"0 0 50 50\" focusable=\"false\">\n                    <circle cx=\"50%\" cy=\"50%\" r=\"20\"></circle>\n                </svg>\n            </div>\n            ").concat(_dummy, "\n            <img class=\"lg-object lg-video-poster\" src=\"").concat(_poster, "\" />\n        </div>");
+  },
+  getFocusableElements: function getFocusableElements(container) {
+    var elements = container.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+    var visibleElements = [].filter.call(elements, function (element) {
+      var style = window.getComputedStyle(element);
+      return style.display !== 'none' && style.visibility !== 'hidden';
+    });
+    return visibleElements;
   },
 
   /**
@@ -6810,6 +6869,7 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
     this.currentItemsInDom = []; // Scroll top value before lightGallery is opened
 
     this.prevScrollTop = 0;
+    this.bodyPaddingRight = 0;
     this.isDummyImageRemoved = false;
     this.dragOrSwipeEnabled = false;
     this.mediaContainerPosition = {
@@ -6871,7 +6931,16 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
         this.zoomFromOrigin = false;
       }
 
-      if (!this.settings.container) {
+      if (this.settings.container) {
+        var container = this.settings.container;
+
+        if (typeof container === 'function') {
+          this.settings.container = container();
+        } else if (typeof container === 'string') {
+          var el = document.querySelector(container);
+          this.settings.container = el !== null && el !== void 0 ? el : document.body;
+        }
+      } else {
         this.settings.container = document.body;
       } // settings.preload should not be grater than $item.length
 
@@ -7203,6 +7272,34 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
         return this.settings.dynamicEl || [];
       }
     }
+  }, {
+    key: "shouldHideScrollbar",
+    value: function shouldHideScrollbar() {
+      return this.settings.hideScrollbar && document.body === this.settings.container;
+    }
+  }, {
+    key: "hideScrollbar",
+    value: function hideScrollbar() {
+      if (!this.shouldHideScrollbar()) {
+        return;
+      }
+
+      this.bodyPaddingRight = parseFloat($LG('body').style().paddingRight);
+      var bodyRect = document.documentElement.getBoundingClientRect();
+      var scrollbarWidth = window.innerWidth - bodyRect.width;
+      $LG(document.body).css('padding-right', scrollbarWidth + this.bodyPaddingRight + 'px');
+      $LG(document.body).addClass('lg-overlay-open');
+    }
+  }, {
+    key: "resetScrollBar",
+    value: function resetScrollBar() {
+      if (!this.shouldHideScrollbar()) {
+        return;
+      }
+
+      $LG(document.body).css('padding-right', this.bodyPaddingRight + 'px');
+      $LG(document.body).removeClass('lg-overlay-open');
+    }
     /**
      * Open lightGallery.
      * Open gallery with specific slide by passing index of the slide as parameter.
@@ -7242,8 +7339,8 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
       // prevent accidental double execution
       if (this.lgOpened) return;
       this.lgOpened = true;
-      this.outer.get().focus();
-      this.outer.removeClass('lg-hide-items'); // Add display block, but still has opacity 0
+      this.outer.removeClass('lg-hide-items');
+      this.hideScrollbar(); // Add display block, but still has opacity 0
 
       this.$container.addClass('lg-show');
       var itemsToBeInsertedToDom = this.getItemsToBeInsertedToDom(index, index);
@@ -7308,7 +7405,12 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
           _this5.$backdrop.addClass('in');
 
           _this5.$container.addClass('lg-show-in');
-        }, 10); // lg-visible class resets gallery opacity to 1
+        }, 10);
+        setTimeout(function () {
+          if (_this5.settings.trapFocus && document.body === _this5.settings.container) {
+            _this5.trapFocus();
+          }
+        }, _this5.settings.backdropDuration + 50); // lg-visible class resets gallery opacity to 1
 
         if (!_this5.zoomFromOrigin || !transform) {
           setTimeout(function () {
@@ -7448,7 +7550,7 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
 
       if (this.settings.appendSubHtmlTo !== '.lg-item') {
         if (subHtmlUrl) {
-          this.outer.find('.lg-sub-html').load(subHtmlUrl);
+          lg_utils.fetchCaptionFromUrl(subHtmlUrl, this.outer.find('.lg-sub-html'), 'replace');
         } else {
           this.outer.find('.lg-sub-html').html(subHtml);
         }
@@ -7456,7 +7558,7 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
         var currentSlide = $LG(this.getSlideItemId(index));
 
         if (subHtmlUrl) {
-          currentSlide.load(subHtmlUrl);
+          lg_utils.fetchCaptionFromUrl(subHtmlUrl, currentSlide, 'append');
         } else {
           currentSlide.append("<div class=\"lg-sub-html\">".concat(subHtml, "</div>"));
         }
@@ -7532,10 +7634,14 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
 
         if (!_dummyImgSrc) return '';
         var imgStyle = this.getDummyImgStyles(this.currentImageSize);
-        var dummyImgContent = "<img ".concat(alt, " style=\"").concat(imgStyle, "\" class=\"lg-dummy-img\" src=\"").concat(_dummyImgSrc, "\" />");
+        var dummyImgContentImg = document.createElement('img');
+        dummyImgContentImg.alt = alt || '';
+        dummyImgContentImg.src = _dummyImgSrc;
+        dummyImgContentImg.className = "lg-dummy-img";
+        dummyImgContentImg.style.cssText = imgStyle;
         $currentSlide.addClass('lg-first-slide');
         this.outer.addClass('lg-first-slide-loading');
-        return dummyImgContent;
+        return dummyImgContentImg;
       }
 
       return '';
@@ -7559,8 +7665,10 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
         imgContent = lg_utils.getImgMarkup(index, src, altAttr, srcset, sizes, sources);
       }
 
-      var imgMarkup = "<picture class=\"lg-img-wrap\"> ".concat(imgContent, "</picture>");
-      $currentSlide.prepend(imgMarkup);
+      var picture = document.createElement('picture');
+      picture.className = 'lg-img-wrap';
+      $LG(picture).append(imgContent);
+      $currentSlide.prepend(picture);
     }
   }, {
     key: "onSlideObjectLoad",
@@ -7596,7 +7704,7 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
         _this7.triggerSlideItemLoad(currentSlide, index, delay, speed, isFirstSlide);
       }, function () {
         currentSlide.addClass('lg-complete lg-complete_');
-        currentSlide.html('<span class="lg-error-msg">Oops... Failed to load content...</span>');
+        currentSlide.html('<span class="lg-error-msg">' + _this7.settings.strings['mediaLoadingFailed'] + '</span>');
       });
     }
   }, {
@@ -7752,7 +7860,9 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
         if (!$currentSlide.hasClass('lg-loaded')) {
           setTimeout(function () {
             if (_this10.getSlideType(currentGalleryItem) === 'image') {
-              $currentSlide.find('.lg-img-wrap').append(lg_utils.getImgMarkup(index, src, '', srcset, sizes, currentGalleryItem.sources));
+              var alt = currentGalleryItem.alt;
+              var altAttr = alt ? 'alt="' + alt + '"' : '';
+              $currentSlide.find('.lg-img-wrap').append(lg_utils.getImgMarkup(index, src, altAttr, srcset, sizes, currentGalleryItem.sources));
 
               if (srcset || sources) {
                 var _$img = $currentSlide.find('.lg-object');
@@ -8255,23 +8365,23 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
 
           var $item = _this17.getSlideItem(_this17.index);
 
-          if (($LG(e.target).hasClass('lg-item') || $item.get().contains(e.target)) && !_this17.outer.hasClass('lg-zoomed') && !_this17.lgBusy && e.targetTouches.length === 1) {
+          if (($LG(e.target).hasClass('lg-item') || $item.get().contains(e.target)) && !_this17.outer.hasClass('lg-zoomed') && !_this17.lgBusy && e.touches.length === 1) {
             isSwiping = true;
             _this17.touchAction = 'swipe';
 
             _this17.manageSwipeClass();
 
             startCoords = {
-              pageX: e.targetTouches[0].pageX,
-              pageY: e.targetTouches[0].pageY
+              pageX: e.touches[0].pageX,
+              pageY: e.touches[0].pageY
             };
           }
         });
         this.$inner.on('touchmove.lg', function (e) {
-          if (isSwiping && _this17.touchAction === 'swipe' && e.targetTouches.length === 1) {
+          if (isSwiping && _this17.touchAction === 'swipe' && e.touches.length === 1) {
             endCoords = {
-              pageX: e.targetTouches[0].pageX,
-              pageY: e.targetTouches[0].pageY
+              pageX: e.touches[0].pageX,
+              pageY: e.touches[0].pageY
             };
 
             _this17.touchMove(startCoords, endCoords, e);
@@ -8603,7 +8713,7 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
   }, {
     key: "isSlideElement",
     value: function isSlideElement(target) {
-      return target.hasClass('lg-outer') || target.hasClass('lg-item') || target.hasClass('lg-img-wrap');
+      return target.hasClass('lg-outer') || target.hasClass('lg-item') || target.hasClass('lg-img-wrap') || target.hasClass('lg-img-rotate');
     }
   }, {
     key: "isPosterElement",
@@ -8637,14 +8747,50 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
       }
     }
   }, {
+    key: "trapFocus",
+    value: function trapFocus() {
+      var _this26 = this;
+
+      this.$container.get().focus({
+        preventScroll: true
+      });
+      $LG(window).on("keydown.lg.global".concat(this.lgId), function (e) {
+        if (!_this26.lgOpened) {
+          return;
+        }
+
+        var isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+
+        if (!isTabPressed) {
+          return;
+        }
+
+        var focusableEls = lg_utils.getFocusableElements(_this26.$container.get());
+        var firstFocusableEl = focusableEls[0];
+        var lastFocusableEl = focusableEls[focusableEls.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstFocusableEl) {
+            lastFocusableEl.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastFocusableEl) {
+            firstFocusableEl.focus();
+            e.preventDefault();
+          }
+        }
+      });
+    }
+  }, {
     key: "manageCloseGallery",
     value: function manageCloseGallery() {
-      var _this26 = this;
+      var _this27 = this;
 
       if (!this.settings.closable) return;
       var mousedown = false;
       this.getElementById('lg-close').on('click.lg', function () {
-        _this26.closeGallery();
+        _this27.closeGallery();
       });
 
       if (this.settings.closeOnTap) {
@@ -8653,7 +8799,7 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
         this.outer.on('mousedown.lg', function (e) {
           var target = $LG(e.target);
 
-          if (_this26.isSlideElement(target)) {
+          if (_this27.isSlideElement(target)) {
             mousedown = true;
           } else {
             mousedown = false;
@@ -8665,9 +8811,9 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
         this.outer.on('mouseup.lg', function (e) {
           var target = $LG(e.target);
 
-          if (_this26.isSlideElement(target) && mousedown) {
-            if (!_this26.outer.hasClass('lg-dragging')) {
-              _this26.closeGallery();
+          if (_this27.isSlideElement(target) && mousedown) {
+            if (!_this27.outer.hasClass('lg-dragging')) {
+              _this27.closeGallery();
             }
           }
         });
@@ -8688,14 +8834,18 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
   }, {
     key: "closeGallery",
     value: function closeGallery(force) {
-      var _this27 = this;
+      var _this28 = this;
 
       if (!this.lgOpened || !this.settings.closable && !force) {
         return 0;
       }
 
       this.LGel.trigger(lGEvents.beforeClose);
-      $LG(window).scrollTop(this.prevScrollTop);
+
+      if (this.settings.resetScrollPosition && !this.settings.hideScrollbar) {
+        $LG(window).scrollTop(this.prevScrollTop);
+      }
+
       var currentItem = this.items[this.index];
       var transform;
 
@@ -8737,32 +8887,35 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
       this.$container.removeClass('lg-show-in'); // Once the closign animation is completed and gallery is invisible
 
       setTimeout(function () {
-        if (_this27.zoomFromOrigin && transform) {
-          _this27.outer.removeClass('lg-zoom-from-image');
+        if (_this28.zoomFromOrigin && transform) {
+          _this28.outer.removeClass('lg-zoom-from-image');
         }
 
-        _this27.$container.removeClass('lg-show'); // Need to remove inline opacity as it is used in the stylesheet as well
+        _this28.$container.removeClass('lg-show'); // Reset scrollbar
 
 
-        _this27.$backdrop.removeAttr('style').css('transition-duration', _this27.settings.backdropDuration + 'ms');
+        _this28.resetScrollBar(); // Need to remove inline opacity as it is used in the stylesheet as well
 
-        _this27.outer.removeClass("lg-closing ".concat(_this27.settings.startClass));
 
-        _this27.getSlideItem(_this27.index).removeClass('lg-start-end-progress');
+        _this28.$backdrop.removeAttr('style').css('transition-duration', _this28.settings.backdropDuration + 'ms');
 
-        _this27.$inner.empty();
+        _this28.outer.removeClass("lg-closing ".concat(_this28.settings.startClass));
 
-        if (_this27.lgOpened) {
-          _this27.LGel.trigger(lGEvents.afterClose, {
-            instance: _this27
+        _this28.getSlideItem(_this28.index).removeClass('lg-start-end-progress');
+
+        _this28.$inner.empty();
+
+        if (_this28.lgOpened) {
+          _this28.LGel.trigger(lGEvents.afterClose, {
+            instance: _this28
           });
         }
 
-        if (_this27.outer.get()) {
-          _this27.outer.get().blur();
+        if (_this28.$container.get()) {
+          _this28.$container.get().blur();
         }
 
-        _this27.lgOpened = false;
+        _this28.lgOpened = false;
       }, removeTimeout + 100);
       return removeTimeout + 100;
     }
@@ -8831,6 +8984,19 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
       this.updateCounterTotal();
       this.manageSingleSlideClassName();
     }
+  }, {
+    key: "destroyGallery",
+    value: function destroyGallery() {
+      this.destroyModules(true);
+
+      if (!this.settings.dynamic) {
+        this.invalidateItems();
+      }
+
+      $LG(window).off(".lg.global".concat(this.lgId));
+      this.LGel.off('.lg');
+      this.$container.remove();
+    }
     /**
      * Destroy lightGallery.
      * Destroy lightGallery and its plugin instances completely
@@ -8848,22 +9014,14 @@ var lightgallery_LightGallery = /*#__PURE__*/function () {
   }, {
     key: "destroy",
     value: function destroy() {
-      var _this28 = this;
-
       var closeTimeout = this.closeGallery(true);
-      setTimeout(function () {
-        _this28.destroyModules(true);
 
-        if (!_this28.settings.dynamic) {
-          _this28.invalidateItems();
-        }
+      if (closeTimeout) {
+        setTimeout(this.destroyGallery.bind(this), closeTimeout);
+      } else {
+        this.destroyGallery();
+      }
 
-        $LG(window).off(".lg.global".concat(_this28.lgId));
-
-        _this28.LGel.off('.lg');
-
-        _this28.$container.remove();
-      }, closeTimeout);
       return closeTimeout;
     }
   }]);
@@ -8878,7 +9036,7 @@ function lightGallery(el, options) {
 }
 
 /* harmony default export */ var src_0 = (lightGallery);
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--0-1!./src/components/LightGallery.vue?vue&type=script&lang=ts
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib!./node_modules/ts-loader??ref--14-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader-v16/dist??ref--0-1!./src/components/LightGallery.vue?vue&type=script&lang=ts
 
 
 
@@ -9020,13 +9178,19 @@ LightGalleryvue_type_script_lang_ts_Lightgallery = __decorate([Options({
 /* harmony default export */ var LightGalleryvue_type_script_lang_ts = (LightGalleryvue_type_script_lang_ts_Lightgallery);
 // CONCATENATED MODULE: ./src/components/LightGallery.vue?vue&type=script&lang=ts
  
+// EXTERNAL MODULE: ./node_modules/vue-loader-v16/dist/exportHelper.js
+var exportHelper = __webpack_require__("6b0d");
+var exportHelper_default = /*#__PURE__*/__webpack_require__.n(exportHelper);
+
 // CONCATENATED MODULE: ./src/components/LightGallery.vue
 
 
 
-LightGalleryvue_type_script_lang_ts.render = render
 
-/* harmony default export */ var components_LightGallery = (LightGalleryvue_type_script_lang_ts);
+
+const __exports__ = /*#__PURE__*/exportHelper_default()(LightGalleryvue_type_script_lang_ts, [['render',render]])
+
+/* harmony default export */ var components_LightGallery = (__exports__);
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 
 

@@ -1,5 +1,5 @@
-import { CSSSelector } from '../shared';
-import Swiper from '../swiper-class';
+import type { CSSSelector } from '../shared.d.ts';
+import type Swiper from '../swiper-class.d.ts';
 
 export interface NavigationMethods {
   /**
@@ -37,6 +37,14 @@ export interface NavigationEvents {
    * Event will be fired on navigation show
    */
   navigationShow: (swiper: Swiper) => void;
+  /**
+   * Event will be fired on navigation prev button click
+   */
+  navigationPrev: (swiper: Swiper) => void;
+  /**
+   * Event will be fired on navigation next button click
+   */
+  navigationNext: (swiper: Swiper) => void;
 }
 
 export interface NavigationOptions {

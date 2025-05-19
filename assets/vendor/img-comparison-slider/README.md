@@ -1,7 +1,8 @@
 # img-comparison-slider
 
-[![npm package](https://img.shields.io/npm/v/img-comparison-slider.svg)](https://www.npmjs.com/package/img-comparison-slider)
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/img-comparison-slider)
+[![npm package](https://img.shields.io/npm/dm/img-comparison-slider?style=flat-square&label=npm&color=blue)](https://www.npmjs.com/package/img-comparison-slider)
+[![](https://img.shields.io/jsdelivr/npm/hm/img-comparison-slider?style=flat-square&color=blue&label=jsDelivr)](https://www.jsdelivr.com/package/npm/img-comparison-slider)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/img-comparison-slider)
 
 ## Slider Component for Comparing Images (Before and After).
 
@@ -14,21 +15,21 @@ Usage examples: [https://img-comparison-slider.sneas.io/examples.html](https://i
 - Mobile friendly
 - Accessible
 - Responsive
-- Compact - less than 9 kB minified (Or less than 3 kB if gzipped)
-- Compatible with modern frameworks ([React](bindings/react/README.md),
+- Compact - less than 12 kB minified (Or less than 4 kB if gzipped)
+- Compatible with modern frameworks ([React](packages/react/README.md),
   [Angular](docs/installation/angular.md),
   [Vue2](docs/installation/vue.md),
-  [Vue3](bindings/vue/README.md))
+  [Vue3](packages/vue/README.md))
 - Distributed via CDN or NPM
 
 <!--
 ```
 <custom-element-demo>
   <template>
-    <script defer src="https://unpkg.com/img-comparison-slider@7/dist/index.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
     <link
       rel="stylesheet"
-      href="https://unpkg.com/img-comparison-slider@7/dist/styles.css"
+      href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"
     />
 
     <img-comparison-slider>
@@ -53,11 +54,11 @@ Usage examples: [https://img-comparison-slider.sneas.io/examples.html](https://i
 ```html
 <script
   defer
-  src="https://unpkg.com/img-comparison-slider@7/dist/index.js"
+  src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"
 ></script>
 <link
   rel="stylesheet"
-  href="https://unpkg.com/img-comparison-slider@7/dist/styles.css"
+  href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"
 />
 
 <img-comparison-slider>
@@ -68,10 +69,10 @@ Usage examples: [https://img-comparison-slider.sneas.io/examples.html](https://i
 
 ### Frameworks Support
 
-- [React](bindings/react/README.md)
+- [React](packages/react/README.md)
 - [Angular](docs/installation/angular.md)
 - [Vue2](docs/installation/vue.md)
-- [Vue3](bindings/vue/README.md)
+- [Vue3](packages/vue/README.md)
 
 ## Supported Attributes
 
@@ -84,6 +85,7 @@ Besides the default `HTMLElement` attributes such as `class`, `tabindex`, `title
 | `direction` | Set slider direction.                                     | `horizontal` | `horizontal`, `vertical` |
 | `nonce`     | Define nonce which gets passed to inline style.           |              |                          |
 | `keyboard`  | Enable/disable slider position control with the keyboard. | `enabled`    | `enabled`, `disabled`    |
+| `handle`    | Enable/disable dragging by handle only.                   | `false`      | `true`, `false`          |
 
 ## Events
 
@@ -109,15 +111,16 @@ Example:
 
 ### Available Variables
 
-| Variable                   | Description                                                | Default value | Example value                    |
-| -------------------------- | ---------------------------------------------------------- | ------------- | -------------------------------- |
-| `--divider-width`          | Width of the vertical line separating both images          | `1px`         | `1em`                            |
-| `--divider-color`          | Color of the vertical line separating the two images       | `#fff`        | `rgba(0, 0, 0, 0.5)`             |
-| `--divider-shadow`         | Shadow cast by the vertical line separating the two images | `none`        | `0px 0px 5px rgba(0, 0, 0, 0.5)` |
-| `--default-handle-width`   | Width of the default handle                                | `50px`        |                                  |
-| `--default-handle-color`   | Color of the default handle                                | `#fff`        | `rgba(0, 0, 0, 0.5)`             |
-| `--default-handle-opacity` | Opacity of the default handle                              | `1`           | `0.3`                            |
-| `--default-handle-shadow`  | Shadow cast by the default handle                          | `none`        | `0px 0px 5px rgba(0, 0, 0, 1)`   |
+| Variable                   | Description                                                                              | Default value | Example value                    |
+| -------------------------- | ---------------------------------------------------------------------------------------- | ------------- | -------------------------------- |
+| `--divider-width`          | Width of the vertical line separating both images                                        | `1px`         | `1em`                            |
+| `--divider-color`          | Color of the vertical line separating the two images                                     | `#fff`        | `rgba(0, 0, 0, 0.5)`             |
+| `--divider-shadow`         | Shadow cast by the vertical line separating the two images                               | `none`        | `0px 0px 5px rgba(0, 0, 0, 0.5)` |
+| `--handle-position-start`  | Handle position on the divider axis. In case the handle must be displaced off the center | `50%`         |                                  |
+| `--default-handle-width`   | Width of the default handle                                                              | `50px`        |                                  |
+| `--default-handle-color`   | Color of the default handle                                                              | `#fff`        | `rgba(0, 0, 0, 0.5)`             |
+| `--default-handle-opacity` | Opacity of the default handle                                                            | `1`           | `0.3`                            |
+| `--default-handle-shadow`  | Shadow cast by the default handle                                                        | `none`        | `0px 0px 5px rgba(0, 0, 0, 1)`   |
 
 ### Handle
 

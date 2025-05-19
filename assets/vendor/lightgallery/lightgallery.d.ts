@@ -26,6 +26,7 @@ export declare class LightGallery {
     $content: lgQuery;
     $toolbar: lgQuery;
     prevScrollTop: number;
+    bodyPaddingRight: number;
     private zoomFromOrigin;
     private currentImageSize?;
     private isDummyImageRemoved;
@@ -99,6 +100,9 @@ export declare class LightGallery {
      */
     updateSlides(items: GalleryItem[], index: number): void;
     getItems(): GalleryItem[];
+    shouldHideScrollbar(): boolean;
+    hideScrollbar(): void;
+    resetScrollBar(): void;
     /**
      * Open lightGallery.
      * Open gallery with specific slide by passing index of the slide as parameter.
@@ -156,7 +160,7 @@ export declare class LightGallery {
     preload(index: number): void;
     getDummyImgStyles(imageSize?: ImageSize): string;
     getVideoContStyle(imageSize?: ImageSize): string;
-    getDummyImageContent($currentSlide: lgQuery, index: number, alt: string): string;
+    getDummyImageContent($currentSlide: lgQuery, index: number, alt: string): HTMLImageElement | string;
     setImgMarkup(src: string, $currentSlide: lgQuery, index: number): void;
     onSlideObjectLoad($slide: lgQuery, isHTML5VideoWithoutPoster: boolean, onLoad: () => void, onError: () => void): void;
     /**
@@ -251,6 +255,7 @@ export declare class LightGallery {
      */
     toggleMaximize(): void;
     invalidateItems(): void;
+    trapFocus(): void;
     manageCloseGallery(): void;
     /**
      * Close lightGallery if it is opened.
@@ -282,6 +287,7 @@ export declare class LightGallery {
      */
     refresh(galleryItems?: GalleryItem[]): void;
     updateControls(): void;
+    private destroyGallery;
     /**
      * Destroy lightGallery.
      * Destroy lightGallery and its plugin instances completely

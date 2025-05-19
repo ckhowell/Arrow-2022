@@ -221,7 +221,8 @@ body:not(.lg-from-hash) {
         &.lg-start-zoom {
             .lg-item:not(.lg-zoomable) {
                 .lg-img-wrap,
-                .lg-video-cont {
+                .lg-video-cont,
+                .lg-media-cont {
                     opacity: 0;
                     @include transform(scale3d(0.5, 0.5, 0.5));
                     will-change: transform, opacity;
@@ -232,12 +233,29 @@ body:not(.lg-from-hash) {
                 }
                 &.lg-complete {
                     .lg-img-wrap,
-                    .lg-video-cont {
+                    .lg-video-cont,
+                    .lg-media-cont {
                         opacity: 1;
                         @include transform(scale3d(1, 1, 1));
                     }
                 }
             }
+        }
+    }
+}
+
+.lg-icon {
+    &:focus-visible {
+        color: #fff;
+        border-radius: 3px;
+        outline: 1px dashed rgba(255, 255, 255, 0.6);
+    }
+}
+.lg-toolbar {
+    .lg-icon {
+        &:focus-visible {
+            border-radius: 8px;
+            outline-offset: -5px;
         }
     }
 }

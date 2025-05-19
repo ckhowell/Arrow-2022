@@ -1,0 +1,60 @@
+/*
+ * Silicon | Multipurpose Bootstrap 5 Template & UI Kit
+ * Copyright 2025 Createx Studio
+ * Theme styles
+*/
+
+// User variables
+@use "user-variables";
+
+// Configuration & utilities
+@use "variables";
+@use "variables-dark";
+@use "utilities";
+
+// Bootstrap
+@use "bootstrap/scss/functions";
+@use "bootstrap/scss/variables";
+@use "bootstrap/scss/variables-dark";
+@use "bootstrap/scss/maps";
+@use "bootstrap/scss/mixins";
+@use "bootstrap/scss/utilities";
+@use "bootstrap/scss/root";
+@use "bootstrap/scss/reboot";
+@use "bootstrap/scss/type";
+@use "bootstrap/scss/images";
+@use "bootstrap/scss/containers";
+@use "bootstrap/scss/grid";
+@use "bootstrap/scss/tables";
+@use "bootstrap/scss/forms";
+@use "bootstrap/scss/buttons";
+@use "bootstrap/scss/transitions";
+@use "bootstrap/scss/dropdown";
+@use "bootstrap/scss/button-group";
+@use "bootstrap/scss/nav";
+@use "bootstrap/scss/navbar";
+@use "bootstrap/scss/card";
+@use "bootstrap/scss/accordion";
+@use "bootstrap/scss/breadcrumb";
+@use "bootstrap/scss/pagination";
+@use "bootstrap/scss/badge";
+@use "bootstrap/scss/alert";
+@use "bootstrap/scss/progress";
+@use "bootstrap/scss/close";
+@use "bootstrap/scss/toasts";
+@use "bootstrap/scss/modal";
+@use "bootstrap/scss/tooltip";
+@use "bootstrap/scss/popover";
+@use "bootstrap/scss/spinners";
+@use "bootstrap/scss/offcanvas";
+@use "bootstrap/scss/placeholders";
+@use "bootstrap/scss/helpers";
+@use "bootstrap/scss/utilities/api";
+
+// Layout & components
+@use "root";
+@use "reboot";
+@use "components";
+
+// User custom styles
+@use "user";

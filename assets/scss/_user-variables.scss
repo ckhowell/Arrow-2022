@@ -17,7 +17,7 @@ $gray-500:                    #c3c3c5 !default;
 $gray-600:                    #aaaaac !default;
 $gray-700:                    #707171 !default;
 $gray-800:                    #4a4a4a !default;
-$gray-900:                    #061a5f !default;
+$gray-900:                    #1A2959 !default;
 $black:                       #000 !default;
 
 // Theme colors
@@ -29,7 +29,7 @@ $success:                     #22c55e !default;
 $warning:                     #ffba08 !default;
 $danger:                      #ef4444 !default;
 $light:                       $white !default;
-$dark:                        #061a5f !default;
+$dark:                        #1A2959 !default;
 
 mark {
   background-color: $primary-light !important;
@@ -62,7 +62,7 @@ $theme-faded-colors: (
 
 // Gradients map
 $theme-gradients: (
-  'primary':              linear-gradient(90deg, $primary 0%, #03DAC6 50%, #061a5f 100%),
+  'primary':              linear-gradient(90deg, $primary 0%, #03DAC6 50%, #1A2959 100%),
   'light':              linear-gradient(15deg,  #defdfd 0%, #f0fefe 40%, #fff 60%, #e1fdfd 100%),
   'hero':              linear-gradient(0deg,  #e1fdfd 0%, #e1fdfd 30%, #fff 100%),
   'primary-translucent':  linear-gradient(180deg, rgba($primary, 0) 0%, rgba($primary, .6) 120%),
@@ -70,7 +70,7 @@ $theme-gradients: (
 ) !default;
 
 .text-gradient-primary {
-  background: linear-gradient(to right, #02c1ae, #02c1ae, #061a5f);
+  background: linear-gradient(to right, #02c1ae, #02c1ae, #1A2959);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
