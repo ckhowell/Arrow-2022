@@ -4,6 +4,7 @@
 
 // Global colors
 
+$primary-text-emphasis-dark:        darken($primary, 5%) !default;
 $secondary-text-emphasis-dark:      $gray-200 !default;
 $success-text-emphasis-dark:        darken($success, 5%) !default;
 $info-text-emphasis-dark:           darken($info, 5%) !default;

@@ -9,7 +9,7 @@
   "main": "index.html",
   "scripts": {
     "dev": "npm-run-all --silent -p styles scripts vendor && npm run watch --silent",
-    "build": "npm-run-all --silent -p styles scripts vendor && npm run validate --silent",
+    "build": "npm-run-all --silent -p styles scripts vendor && npm run validate --silent && jekyll build",
     "styles": "npm-run-all -s styles:compile styles:minify",
     "styles:compile": "node build/styles.js compile",
     "styles:minify": "node build/styles.js minify",

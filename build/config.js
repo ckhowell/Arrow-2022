@@ -1,6 +1,6 @@
 const config = {
   path: {
-    html: ['./', './docs', './components'],
+    html: ['./'],
     scss: 'src/scss',
     src_js: 'src/js',
     js: 'assets/js',
