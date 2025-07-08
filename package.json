@@ -18,7 +18,8 @@
     "scripts:minify": "node build/scripts.js minify",
     "vendor": "node build/vendor.js",
     "validate": "node build/validate.js",
-    "watch": "node build/watch.js"
+    "watch": "node build/watch.js",
+    "lint:scss": "stylelint 'src/**/*.scss' --fix"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.25.8",
@@ -38,7 +39,8 @@
     "prettier": "^3.3.3",
     "rollup": "^4.24.0",
     "sass": "^1.80.3",
-    "stylelint": "^16.10.0",
+    "stylelint": "^16.21.1",
+    "stylelint-config-standard": "^38.0.0",
     "stylelint-config-twbs-bootstrap": "^15.1.0",
     "terser": "^5.36.0"
   },

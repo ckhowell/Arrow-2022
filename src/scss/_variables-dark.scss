@@ -3,6 +3,7 @@
 // Custom variables for the `[data-bs-theme="dark"]` theme.
 
 // Global colors
+@use "variables" as *;
 
 $primary-text-emphasis-dark:        darken($primary, 5%) !default;
 $secondary-text-emphasis-dark:      $gray-200 !default;

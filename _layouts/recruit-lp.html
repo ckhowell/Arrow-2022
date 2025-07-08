@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% include head.html %}
+{% include head.html %}
+<style>
+  .testimonial-section {
+    background-color: #eef7f5 !important;
+  }
 
-  <!-- Body -->
-  <body class="{{page.mode}}">
-    <!-- Page loading spinner -->
-    <div class="page-loading active">
-      <div class="page-loading-inner">
-        <div class="page-spinner"></div>
-        <span>Loading...</span>
-      </div>
+  .border-teal {
+    border-left: 6px solid #00eac3 !important;
+  }
+
+  .letter-spacing-sm {
+    letter-spacing: .08em !important;
+  }
+
+  .rounded-image {
+    border-radius: 180px 180px 180px 180px !important;
+    object-fit: cover !important;
+    height: 500px !important;
+  }
+</style>
+<!-- Body -->
+
+<body class="{{page.mode}}">
+  <!-- Page loading spinner -->
+  <div class="page-loading active">
+    <div class="page-loading-inner">
+      <div class="page-spinner"></div>
+      <span>Loading...</span>
     </div>
+  </div>
 
-    <!-- Page wrapper for sticky footer -->
-    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
-    <main class="page-wrapper zindex-5">
-      {% include nav-recruit-lp.html %}
-      
-      {{ content }} 
-      
-    </main>
+  <!-- Page wrapper for sticky footer -->
+  <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+  <main class="page-wrapper zindex-5">
+    {% include nav-recruit-lp.html %}
 
-    <!-- Footer -->
-    {% include footer.html %}
-    <!-- Back to top button -->
-    <a href="#top" class="btn-scroll-top" data-scroll>
-      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
-      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
-    </a>
+    {{ content }}
 
-    {% include scripts.html %}
-  </body>
+  </main>
+
+  <!-- Footer -->
+  {% include footer.html %}
+  <!-- Back to top button -->
+  <a href="#top" class="btn-scroll-top" data-scroll>
+    <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+    <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+  </a>
+
+  {% include scripts.html %}
+</body>
+
 </html>

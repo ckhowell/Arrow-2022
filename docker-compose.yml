@@ -1,6 +1,6 @@
 services:
   jekyll:
-    image: jekyll-site:latest
+    image: arrow-image
     build:
       context: .
     volumes:
