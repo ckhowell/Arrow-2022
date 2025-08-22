@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <title>Silicon | Online Courses Landing</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Silicon - Multipurpose Technology Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, creative agency, mobile app showcase, saas, fintech, finance, online courses, software, medical, conference landing, services, e-commerce, shopping cart, multipurpose, shop, ui kit, marketing, seo, landing, blog, portfolio, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="Createx Studio">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Theme switcher (color modes) -->
+    <script src="assets/js/theme-switcher.js"></script>
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#6366f1">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css">
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      [data-bs-theme="dark"] .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      [data-bs-theme="dark"] .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      [data-bs-theme="dark"] .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+
+  </head>
+
+
+  <!-- Body -->
+  <body>
+    
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+
+
+    <!-- Page wrapper for sticky footer -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <header class="header navbar navbar-expand-lg bg-light navbar-sticky">
+        <div class="container px-3">
+          <a href="#" class="navbar-brand pe-3">
+            <span class="text-primary">ARROW</span>
+            <span class="text-dark">executive sales</span>
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#courses" class="nav-link">Courses</a></li>
+                <li class="nav-item"><a href="#process" class="nav-link">Our Process</a></li>
+                <li class="nav-item"><a href="#benefits" class="nav-link">Benefits</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="#contact" class="btn btn-primary w-100">
+                Book Evaluation
+              </a>
+            </div>      
+          </div>
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="#contact" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex">
+            Book Your Sales DNA Evaluation
+          </a>
+        </div>
+      </header>
+
+
+      <!-- Hero section -->
+      <section id="hero" class="position-relative py-5">
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-primary opacity-10"></div>
+        <div class="container position-relative zindex-2 py-lg-4">
+          <div class="row align-items-center">
+            <div class="col-lg-6 d-flex flex-column pt-lg-4 pt-xl-5">
+              <h5 class="my-2 text-primary">Turning Training into Revenue</h5>
+              <h1 class="display-3 mb-4">Win Your Dream Clients</h1>
+              <p class="fs-lg mb-5">Stop ticking the training box. Our high-impact programs deliver measurable results: more meetings with decision-makers, more compelling conversations, and more closed deals. Ready to build the confidence and skills to consistently win new business?</p>
+              <div class="d-flex align-items-center mt-auto mb-3 mb-lg-0 pb-4 pb-lg-0 pb-xl-5">
+                <a href="#courses" class="btn btn-lg btn-primary me-3">Explore Courses</a>
+                <div class="d-flex">
+                  <div class="d-flex align-items-center justify-content-center bg-light rounded-circle" style="width: 52px; height: 52px;">
+                    <img src="https://placehold.co/48x48/E9EAEC/4A4A4A?text=JS" class="rounded-circle" width="48" alt="Avatar">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-center bg-light rounded-circle ms-n3" style="width: 52px; height: 52px;">
+                    <img src="https://placehold.co/48x48/E9EAEC/4A4A4A?text=AS" class="rounded-circle" width="48" alt="Avatar">
+                  </div>
+                  <div class="d-flex align-items-center justify-content-center bg-light rounded-circle ms-n3" style="width: 52px; height: 52px;">
+                    <img src="https://placehold.co/48x48/E9EAEC/4A4A4A?text=MJ" class="rounded-circle" width="48" alt="Avatar">
+                  </div>
+                </div>
+                <span class="fs-sm ps-2"><span class="text-primary fw-semibold">Join</span> top-performing sales talent</span>
+              </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="https://placehold.co/648x600/E9EAEC/4A4A4A?text=Sales+Team+Winning" alt="Sales team celebrating a win" class="rounded-3">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Us -->
+       <section class="container mt-2 mt-sm-3 py-md-3 py-lg-5">
+        <div class="row justify-content-center text-center">
+           <div class="col-lg-8">
+                <h2 class="h1 mb-4">Why Typical Training Fails (And How We Fix It)</h2>
+                <p class="fs-lg text-muted mb-5">Research shows <strong>84% of traditional training is forgotten within 90 days</strong> if it's not applied, reinforced, and coached. We do things differently with shorter, high-impact sessions, practical application on live opportunities, and targeted 1:1 coaching to lock in new behaviours.</p>
+           </div>
+        </div>
+       </section>
+
+
+      <!-- High-Impact Courses -->
+      <section id="courses" class="container mt-2 mt-sm-3 py-md-3 py-lg-5">
+        <h2 class="h1 text-center pb-4 mb-3">Our High-Impact Courses</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          
+          <!-- Course 1 -->
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="bg-primary-light rounded-circle p-3 flex-shrink-0">
+                    <i class='bx bx-brain bx-md text-primary'></i>
+                  </div>
+                  <h3 class="h5 mb-0 ps-3">Sales Mindset</h3>
+                </div>
+                <p>Uncover hidden barriers. Build resilience, motivation, and self-awareness to push through challenges and sell without roadblocks.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Course 2 -->
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                 <div class="d-flex align-items-center mb-3">
+                  <div class="bg-primary-light rounded-circle p-3 flex-shrink-0">
+                    <i class='bx bx-user-check bx-md text-primary'></i>
+                  </div>
+                  <h3 class="h5 mb-0 ps-3">Relationship Building</h3>
+                </div>
+                <p>Accelerate trust and win faster. Secure meetings with decision-makers and earn client loyalty that follows you wherever you go.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Course 3 -->
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="bg-primary-light rounded-circle p-3 flex-shrink-0">
+                    <i class='bx bx-diamond bx-md text-primary'></i>
+                  </div>
+                  <h3 class="h5 mb-0 ps-3">Selling Value</h3>
+                </div>
+                <p>Stop competing on price. Protect your margin by selling unique value and positioning your solution as the only logical choice.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course 4 -->
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="bg-primary-light rounded-circle p-3 flex-shrink-0">
+                    <i class='bx bx-conversation bx-md text-primary'></i>
+                  </div>
+                  <h3 class="h5 mb-0 ps-3">Consultative Selling</h3>
+                </div>
+                <p>Ask, listen, and win. Use smart questioning and deep listening to uncover real buying motives and stand out from competitors.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course 5 -->
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="bg-primary-light rounded-circle p-3 flex-shrink-0">
+                    <i class='bx bx-line-chart bx-md text-primary'></i>
+                  </div>
+                  <h3 class="h5 mb-0 ps-3">Prospecting</h3>
+                </div>
+                <p>Build a pipeline that closes. Target the right accounts, warm up cold calls, and maintain a steady flow of qualified opportunities.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course 6 -->
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="bg-primary-light rounded-circle p-3 flex-shrink-0">
+                    <i class='bx bx-target-lock bx-md text-primary'></i>
+                  </div>
+                  <h3 class="h5 mb-0 ps-3">Closing</h3>
+                </div>
+                <p>Win more, win smarter. Spot decision points, remove roadblocks, and close naturally by following a milestone-driven process.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Our Process (Steps) -->
+      <section id="process" class="container pt-4 pt-lg-0 pb-4 pb-lg-5">
+        <h2 class="h1 text-center pb-3 pb-md-0 mb-md-5">Our Proven Process</h2>
+        <div class="steps">
+          <div class="step pt-0 pt-md-3 pb-5">
+            <div class="step-number">
+              <div class="step-number-inner">1</div>
+            </div>
+            <div class="step-body d-flex align-items-center ps-xl-5">
+              <div class="ps-md-4 ps-xl-5">
+                <h3 class="h4">Diagnose Before We Prescribe</h3>
+                <p class="mb-0">We start with a Sales DNA Evaluation—a detailed 38-page analysis of your mindset and tactical skills across 21 core sales competencies. You'll see exactly where you stand and uncover your biggest growth opportunities.</p>
+              </div>
+            </div>
+          </div>
+          <div class="step pt-0 pt-md-4 pb-5">
+            <div class="step-number">
+              <div class="step-number-inner">2</div>
+            </div>
+            <div class="step-body d-flex align-items-center ps-xl-5">
+              <div class="ps-md-4 ps-xl-5">
+                <h3 class="h4">Choose Your Impact Courses</h3>
+                <p class="mb-0">Based on your Sales DNA results, you select from our six high-impact courses. Each is delivered in a practical format: virtual group sessions, 1:1 coaching, microlearning videos, and tasks linked directly to your active sales opportunities.</p>
+              </div>
+            </div>
+          </div>
+          <div class="step pt-0 pt-md-4 pb-5">
+            <div class="step-number">
+              <div class="step-number-inner">3</div>
+            </div>
+            <div class="step-body d-flex align-items-center ps-xl-5">
+              <div class="ps-md-4 ps-xl-5">
+                <h3 class="h4">Measure, Adjust, Win</h3>
+                <p class="mb-0">We don't guess. We measure. Towards the end of your training, we revisit your Sales DNA to review progress, celebrate wins, and fine-tune your approach for even better results. Our goal is to get you into the top 20% of sales performers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Benefits (Icon boxes) -->
+      <section id="benefits" class="container pt-1 pt-xl-3 pb-5">
+        <h2 class="h1 text-center pb-3 pb-md-0 mb-md-5">The ROI You Can Bank On</h2>
+        <div class="row">
+            <!-- Item -->
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div class="card card-hover h-100">
+                <div class="card-body text-center">
+                  <div class="d-inline-block bg-primary-light rounded-circle p-3 mb-4">
+                    <i class="bx bx-rocket bx-md text-primary"></i>
+                  </div>
+                  <h3 class="h5 pb-1 mb-2">Get in Front of Decision-Makers Faster</h3>
+                </div>
+              </div>
+            </div>
+            <!-- Item -->
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div class="card card-hover h-100">
+                <div class="card-body text-center">
+                  <div class="d-inline-block bg-primary-light rounded-circle p-3 mb-4">
+                    <i class="bx bx-time-five bx-md text-primary"></i>
+                  </div>
+                  <h3 class="h5 pb-1 mb-2">Create Urgency So Opportunities Don't Stall</h3>
+                </div>
+              </div>
+            </div>
+            <!-- Item -->
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div class="card card-hover h-100">
+                <div class="card-body text-center">
+                  <div class="d-inline-block bg-primary-light rounded-circle p-3 mb-4">
+                    <i class="bx bx-trophy bx-md text-primary"></i>
+                  </div>
+                  <h3 class="h5 pb-1 mb-2">Craft Compelling Reasons to Choose You</h3>
+                </div>
+              </div>
+            </div>
+             <!-- Item -->
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div class="card card-hover h-100">
+                <div class="card-body text-center">
+                  <div class="d-inline-block bg-primary-light rounded-circle p-3 mb-4">
+                    <i class="bx bx-shield-quarter bx-md text-primary"></i>
+                  </div>
+                  <h3 class="h5 pb-1 mb-2">Build Trust and Become a Strategic Partner</h3>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+
+
+      <!-- Contact Form -->
+      <section id="contact" class="bg-secondary pb-lg-5" style="margin-top: -240px; padding-top: 300px;">
+        <div class="container pt-2 pt-md-3 pt-lg-5 pb-5">
+          <h2 class="h1 text-center pb-2 mb-4 mb-lg-5">Ready to Win Your Dream Accounts?</h2>
+          <div class="row pb-3 justify-content-center">
+            <div class="col-lg-8 col-md-10">
+              <div class="card border-0 p-lg-4">
+                <div class="card-body">
+                  <h3 class="pb-3 pb-lg-4 text-center">Start Your Journey with the Sales DNA Evaluation</h3>
+                  <p class="text-center mb-4">Your journey starts here. This evaluation, valued at $1,195, is the first step to designing a plan that delivers lasting skills. Let's uncover your potential.</p>
+                  <form class="needs-validation mb-4 pb-2 pb-lg-0 mb-lg-5" novalidate>
+                    <div class="row g-4">
+                        <div class="col-sm-6">
+                            <label for="name" class="form-label fs-base">Full Name</label>
+                            <input type="text" id="name" class="form-control form-control-lg" required>
+                            <div class="invalid-tooltip">Please enter your name.</div>
+                        </div>
+                         <div class="col-sm-6">
+                            <label for="company" class="form-label fs-base">Company</label>
+                            <input type="text" id="company" class="form-control form-control-lg" required>
+                             <div class="invalid-tooltip">Please enter your company name.</div>
+                        </div>
+                        <div class="col-12">
+                            <label for="email" class="form-label fs-base">Email address</label>
+                            <input type="email" id="email" class="form-control form-control-lg" required>
+                            <div class="invalid-tooltip">Please provide a valid email address.</div>
+                        </div>
+                        <div class="col-12 text-center">
+                             <button type="submit" class="btn btn-primary btn-lg shadow-primary">Book My Evaluation</button>
+                        </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-4 pb-lg-5">
+      <div class="container pt-lg-4">
+        <div class="row pb-5">
+          <div class="col-lg-4 col-md-6">
+            <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+              <span class="text-primary">ARROW</span>
+              <span class="text-dark">executive sales</span>
+            </div>
+            <p class="fs-sm pb-lg-3 mb-4">Arrow Executive Sales helps B2B companies grow revenue by attracting, recruiting, and coaching top-performing sales talent.</p>
+          </div>
+          <div class="col-xl-6 col-lg-7 col-md-5 offset-xl-2 offset-md-1 pt-4 pt-md-1 pt-lg-0">
+            <div id="footer-links" class="row">
+              <div class="col-lg-4">
+                <h6 class="mb-2">
+                  <a href="#useful-links" class="d-block text-dark dropdown-toggle d-lg-none py-2" data-bs-toggle="collapse">Useful Links</a>
+                </h6>
+                <div id="useful-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                  <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                    <li class="nav-item"><a href="#hero" class="nav-link d-inline-block px-0 pt-1 pb-2">Home</a></li>
+                    <li class="nav-item"><a href="#courses" class="nav-link d-inline-block px-0 pt-1 pb-2">Courses</a></li>
+                    <li class="nav-item"><a href="#process" class="nav-link d-inline-block px-0 pt-1 pb-2">Our Process</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link d-inline-block px-0 pt-1 pb-2">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-5 pt-2 pt-lg-0">
+                <h6 class="mb-2">Contact Us</h6>
+                <a href="mailto:jason.howes@arrowexec.com.au" class="fw-medium">jason.howes@arrowexec.com.au</a>
+                 <br>
+                <a href="tel:1300903627" class="fw-medium">1300 903 627</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+          &copy; All rights reserved. Made with &hearts;
+        </p>
+      </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+
+    <!-- Vendor Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Main Theme Script -->
+    <script>
+      (function () {
+          "use strict";
+
+          /**
+           * Handles the sticky navbar functionality.
+           */
+          const stickyNavbar = () => {
+              const navbar = document.querySelector(".navbar-sticky");
+              if (!navbar) return;
+
+              const navbarHeight = navbar.offsetHeight;
+
+              const handleScroll = () => {
+                  if (window.scrollY > 400) { // Start sticking after scrolling 400px
+                      document.body.style.paddingTop = navbarHeight + 'px';
+                      navbar.classList.add('navbar-stuck');
+                  } else {
+                      document.body.style.paddingTop = '';
+                      navbar.classList.remove('navbar-stuck');
+                  }
+              };
+
+              window.addEventListener("scroll", handleScroll);
+          };
+
+          /**
+           * Initializes Rellax parallax effect.
+           */
+          const initRellax = () => {
+              if (document.querySelector('.rellax')) {
+                  new Rellax('.rellax');
+              }
+          };
+
+          /**
+           * Handles the scroll-to-top button visibility.
+           */
+          const scrollTopButton = () => {
+              const scrollTop = document.querySelector(".btn-scroll-top");
+              if (scrollTop) {
+                  const scrollThreshold = 600;
+                  window.addEventListener("scroll", (e) => {
+                      if (e.currentTarget.scrollY > scrollThreshold) {
+                          scrollTop.classList.add("show");
+                      } else {
+                          scrollTop.classList.remove("show");
+                      }
+                  });
+              }
+          };
+          
+          /**
+           * Initializes Bootstrap form validation.
+           */
+          const formValidation = () => {
+              const forms = document.querySelectorAll('.needs-validation');
+              Array.prototype.slice.call(forms).forEach(function (form) {
+                  form.addEventListener('submit', function (event) {
+                      if (!form.checkValidity()) {
+                          event.preventDefault();
+                          event.stopPropagation();
+                      }
+                      form.classList.add('was-validated');
+                  }, false);
+              });
+          };
+
+          // Initialize all scripts on DOMContentLoaded
+          document.addEventListener('DOMContentLoaded', () => {
+              stickyNavbar();
+              initRellax();
+              scrollTopButton();
+              formValidation();
+          });
+
+      })();
+    </script>
+  </body>
+</html>

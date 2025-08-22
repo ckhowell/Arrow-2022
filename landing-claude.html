@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Executive Sales Training - Win Your Dream Clients</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --success-color: #27ae60;
+            --dark-bg: #1a252f;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--accent-color);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .course-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stats-section {
+            background: var(--primary-color);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: block;
+        }
+        
+        .process-step {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--success-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .btn-primary-custom {
+            background: var(--secondary-color);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        .btn-primary-custom:hover {
+            background: #c0392b;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 15px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .benefit-icon {
+            color: var(--success-color);
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+        
+        .testimonial-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .format-badge {
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0 40px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-arrow-up me-2"></i>Arrow Executive Sales
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#benefits">Benefits</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="display-4 fw-bold mb-4">Win Your Dream Clients</h1>
+                    <p class="lead mb-4">Turn training into revenue with our proven sales programs. Land those accounts you've always wanted but never quite had the confidence, skill, or process to win.</p>
+                    <div class="mb-4">
+                        <div class="benefit-item">
+                            <i class="fas fa-check benefit-icon"></i>
+                            <span>More meetings with decision-makers</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check benefit-icon"></i>
+                            <span>More compelling conversations</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check benefit-icon"></i>
+                            <span>More closed deals</span>
+                        </div>
+                    </div>
+                    <a href="#dna-eval" class="btn btn-primary-custom btn-lg me-3 mb-3">
+                        <i class="fas fa-dna me-2"></i>Get Your FREE Sales DNA Evaluation
+                    </a>
+                    <a href="tel:1300903527" class="btn btn-outline-light btn-lg mb-3">
+                        <i class="fas fa-phone me-2"></i>1300 903 527
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <div class="bg-white p-4 rounded-3 shadow-lg">
+                            <h4 class="text-dark mb-3">Sales DNA Evaluation</h4>
+                            <p class="text-muted mb-3">38-page analysis comparing you to 2.8M+ salespeople worldwide</p>
+                            <div class="fs-2 fw-bold text-success mb-2">
+                                <s class="text-muted fs-5">$1,195</s> FREE
+                            </div>
+                            <p class="small text-muted">Includes 90-min results debrief</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 stat-item">
+                    <span class="stat-number">84%</span>
+                    <p>Of traditional training forgotten in 90 days</p>
+                </div>
+                <div class="col-md-3 stat-item">
+                    <span class="stat-number">30%</span>
+                    <p>Improvement can be a game-changer</p>
+                </div>
+                <div class="col-md-3 stat-item">
+                    <span class="stat-number">21</span>
+                    <p>Core sales competencies analyzed</p>
+                </div>
+                <div class="col-md-3 stat-item">
+                    <span class="stat-number">2.8M</span>
+                    <p>Salespeople in our comparison database</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why We're Different -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Why Typical Training Fails (And How We Fix It)</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4 class="text-danger mb-3"><i class="fas fa-times-circle me-2"></i>Traditional Training Problems</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-minus text-danger me-2"></i>84% forgotten within 90 days</li>
+                        <li class="mb-2"><i class="fas fa-minus text-danger me-2"></i>No practical application</li>
+                        <li class="mb-2"><i class="fas fa-minus text-danger me-2"></i>Lack of reinforcement</li>
+                        <li class="mb-2"><i class="fas fa-minus text-danger me-2"></i>No ongoing coaching</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <h4 class="text-success mb-3"><i class="fas fa-check-circle me-2"></i>Our Solution</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-plus text-success me-2"></i>Shorter, high-impact sessions</li>
+                        <li class="mb-2"><i class="fas fa-plus text-success me-2"></i>Practical application on live opportunities</li>
+                        <li class="mb-2"><i class="fas fa-plus text-success me-2"></i>Targeted 1:1 coaching</li>
+                        <li class="mb-2"><i class="fas fa-plus text-success me-2"></i>Weekly microlearning & tasks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Our 3-Step Process</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="course-icon mx-auto">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                        <h4>Diagnose Before We Prescribe</h4>
+                        <p>Complete Sales DNA Evaluation - 38-page analysis of mindset and tactical skills across 21 core competencies. See exactly how you compare to 2.8M+ salespeople worldwide.</p>
+                        <div class="format-badge">Value: $1,195 + GST - FREE</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="course-icon mx-auto">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Choose Your Impact Courses</h4>
+                        <p>Select from six high-impact courses based on your DNA results. Each course includes virtual sessions, 1:1 coaching, microlearning videos, and practical application.</p>
+                        <div class="format-badge">6 Courses Available</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="course-icon mx-auto">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Measure, Adjust, Win</h4>
+                        <p>80% through training, we revisit your Sales DNA to review progress. Compare starting percentile to current performance and fine-tune for even better results.</p>
+                        <div class="format-badge">Top 20% Goal</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Six High-Impact Courses</h2>
+            <div class="row">
+                <!-- Half Day Courses -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Sales Mindset</h4>
+                        <p class="text-muted mb-3">Uncover Hidden Barriers</p>
+                        <p>Build resilience, motivation and self-awareness so you can push through challenges and sell without roadblocks.</p>
+                        <div class="format-badge mb-3">Half Day Format</div>
+                        <ul class="list-unstyled small">
+                            <li><i class="fas fa-video me-2 text-primary"></i>3 x 60-min virtual sessions</li>
+                            <li><i class="fas fa-user me-2 text-primary"></i>1 x 30-min 1:1 coaching</li>
+                            <li><i class="fas fa-play me-2 text-primary"></i>Weekly microlearning videos</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Relationship Building</h4>
+                        <p class="text-muted mb-3">Accelerate Trust, Win Faster</p>
+                        <p>Win trust early, secure meetings with decision-makers and earn client loyalty that follows you wherever you go.</p>
+                        <div class="format-badge mb-3">Half Day Format</div>
+                        <ul class="list-unstyled small">
+                            <li><i class="fas fa-video me-2 text-primary"></i>3 x 60-min virtual sessions</li>
+                            <li><i class="fas fa-user me-2 text-primary"></i>1 x 30-min 1:1 coaching</li>
+                            <li><i class="fas fa-tasks me-2 text-primary"></i>Weekly tasks & reflections</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h4>Selling Value</h4>
+                        <p class="text-muted mb-3">Stop Competing on Price</p>
+                        <p>Protect margin by selling unique value and positioning your solution as the only logical choice.</p>
+                        <div class="format-badge mb-3">Half Day Format</div>
+                        <ul class="list-unstyled small">
+                            <li><i class="fas fa-shield-alt me-2 text-success"></i>Protect your margins</li>
+                            <li><i class="fas fa-star me-2 text-success"></i>Unique value positioning</li>
+                            <li><i class="fas fa-trophy me-2 text-success"></i>Beat the competition</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4>Consultative Selling</h4>
+                        <p class="text-muted mb-3">Ask, Listen and Win</p>
+                        <p>Use smart questioning and deep listening to uncover real buying motives. Techniques that secured contracts worth $10M+.</p>
+                        <div class="format-badge mb-3">Full Day Format</div>
+                        <ul class="list-unstyled small">
+                            <li><i class="fas fa-dollar-sign me-2 text-warning"></i>$10M+ proven techniques</li>
+                            <li><i class="fas fa-search me-2 text-warning"></i>Uncover real buying motives</li>
+                            <li><i class="fas fa-ear-listen me-2 text-warning"></i>Smart questioning skills</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4>Prospecting</h4>
+                        <p class="text-muted mb-3">Build a Pipeline That Closes</p>
+                        <p>Target the right accounts, warm up cold calls and maintain a steady flow of qualified opportunities.</p>
+                        <div class="format-badge mb-3">Full Day Format</div>
+                        <ul class="list-unstyled small">
+                            <li><i class="fas fa-video me-2 text-primary"></i>5 x 60-min virtual sessions</li>
+                            <li><i class="fas fa-user me-2 text-primary"></i>1 x 30-min 1:1 coaching</li>
+                            <li><i class="fas fa-bullseye me-2 text-primary"></i>Target right accounts</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-flag-checkered"></i>
+                        </div>
+                        <h4>Closing</h4>
+                        <p class="text-muted mb-3">Win More, Win Smarter</p>
+                        <p>Spot decision points, remove roadblocks and close naturally by following a milestone-driven process.</p>
+                        <div class="format-badge mb-3">Full Day Format</div>
+                        <ul class="list-unstyled small">
+                            <li><i class="fas fa-road me-2 text-danger"></i>Remove roadblocks</li>
+                            <li><i class="fas fa-crosshairs me-2 text-danger"></i>Spot decision points</li>
+                            <li><i class="fas fa-rocket me-2 text-danger"></i>Seriously impact growth</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">The ROI You Can Bank On</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h4 class="mb-4">Sales training should be an investment that pays for itself. We'll help you:</h4>
+                    <div class="benefit-item">
+                        <i class="fas fa-rocket benefit-icon"></i>
+                        <span>Get in front of decision-makers faster</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-clock benefit-icon"></i>
+                        <span>Create urgency so opportunities don't stall</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-trophy benefit-icon"></i>
+                        <span>Craft compelling reasons for clients to choose you over competition</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-handshake benefit-icon"></i>
+                        <span>Build trust early so you're seen as a strategic partner, not just another supplier</span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-primary text-white p-4 rounded-3 text-center">
+                        <h3 class="mb-3">Like Athletes, Salespeople Need to Train the Right Way</h3>
+                        <div class="display-4 fw-bold text-warning mb-3">20-30%</div>
+                        <p class="mb-0">Even a 20-30% improvement can be a game-changer for hitting targets, earning incentives and enjoying your craft.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="dna-eval" class="cta-section">
+        <div class="container text-center">
+            <h2 class="display-5 fw-bold mb-4">Ready to Win Your Dream Accounts?</h2>
+            <p class="lead mb-5">Your journey starts with the Sales DNA evaluation. From there, we'll design a plan that delivers lasting skills and capabilities that pay you back for years to come.</p>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8">
+                    <div class="bg-white text-dark p-4 rounded-3 mb-4">
+                        <h4 class="text-primary mb-3">Get Started Today</h4>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <a href="https://www.arrowexec.com.au/training-lp" class="btn btn-primary-custom w-100">
+                                    <i class="fas fa-globe me-2"></i>Visit Website
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <a href="tel:1300903527" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-phone me-2"></i>1300 903 527
+                                </a>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#qrModal">
+                                    <i class="fas fa-qrcode me-2"></i>Scan QR Code
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h5>Arrow Executive Sales</h5>
+                    <p class="mb-2">Helping B2B companies grow revenue by attracting, recruiting, and coaching top-performing sales talent.</p>
+                    <p class="mb-0">
+                        <i class="fas fa-phone me-2"></i>1300 903 527 | 
+                        <i class="fas fa-globe me-2 ms-3"></i>arrowexec.com.au
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <p class="fw-bold mb-2">Train. Coach. Mentor. Repeat.</p>
+                    <p class="small mb-0">Proven Programs To Drive New Business Opportunities!</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- QR Code Modal -->
+    <div class="modal fade" id="qrModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Scan to Learn More</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>Scan this QR code with your phone camera to visit our training page:</p>
+                    <div class="bg-light p-4 rounded">
+                        <p class="fw-bold">QR Code would appear here</p>
+                        <p class="small text-muted">Links to: https://www.arrowexec.com.au/training-lp</p>
+                    </div>
+                    <div class="mt-3">
+                        <a href="https://www.arrowexec.com.au/training-lp" class="btn btn-primary" target="_blank">
+                            Or Click Here to Visit Directly
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation when sections come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe course cards and process steps
+        document.querySelectorAll('.course-card, .process-step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            observer.observe(el);
+        });
+
+        // CSS animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
