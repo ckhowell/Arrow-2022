@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Arrow Executive Sales | Win Your Dream Clients</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="High-impact sales training designed to help you win your dream accounts. Turn training into measurable revenue.">
+    <meta name="keywords" content="sales training, executive sales, b2b sales, consultative selling, prospecting, closing deals, sales dna, jason howes, arrow executive sales">
+    <meta name="author" content="Arrow Executive Sales">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://placehold.co/180x180/00eac3/1A2959?text=A">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://placehold.co/32x32/00eac3/1A2959?text=A">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://placehold.co/16x16/00eac3/1A2959?text=A">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Custom Styles -->
+    <style>
+      :root {
+        --color-primary: #00eac3;
+        --color-dark: #1A2959;
+        --color-light: #f3f4f6;
+        --color-body-text: #4a4a4a;
+      }
+      html {
+        scroll-padding-top: 80px; /* Adjust for sticky nav height */
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        color: var(--color-body-text);
+        line-height: 1.6;
+      }
+      .bg-primary { background-color: var(--color-primary); }
+      .text-primary { color: var(--color-primary); }
+      .bg-dark { background-color: var(--color-dark); }
+      .text-dark { color: var(--color-dark); }
+      .bg-light { background-color: var(--color-light); }
+      .btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .btn-primary {
+        background-color: var(--color-primary);
+        color: var(--color-dark);
+      }
+      .btn-primary:hover {
+        background-color: #00c1a2;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      .navbar-sticky {
+        position: sticky;
+        top: 0;
+        z-index: 1020;
+        transition: all 0.3s ease-in-out;
+      }
+      .navbar-stuck {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+      }
+      .course-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .course-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .step-number {
+        color: var(--color-primary);
+        opacity: 0.3;
+      }
+
+      /* Modern Form Styles */
+      .form-group {
+        position: relative;
+        margin-bottom: 1.5rem;
+      }
+      .form-input {
+        width: 100%;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        padding: 1rem 1rem 1rem 2.75rem;
+        font-size: 1rem;
+        transition: border-color 0.2s ease;
+      }
+      .form-input:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(0, 234, 195, 0.3);
+      }
+      .form-label {
+        position: absolute;
+        left: 2.75rem;
+        top: 1rem;
+        color: #6b7280;
+        pointer-events: none;
+        transition: all 0.2s ease;
+        background-color: #fff;
+        padding: 0 0.25rem;
+      }
+      .form-input:focus + .form-label,
+      .form-input:not(:placeholder-shown) + .form-label {
+        top: -0.75rem;
+        left: 2.5rem;
+        font-size: 0.875rem;
+        color: var(--color-dark);
+      }
+      .form-icon {
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        color: #9ca3af;
+        font-size: 1.25rem;
+      }
+      .was-validated .form-input:invalid {
+        border-color: #ef4444;
+      }
+      .was-validated .form-input:invalid:focus {
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+      }
+      
+      /* Typography Hierarchy */
+      h1, .h1 {
+        letter-spacing: -0.025em;
+      }
+      h2, .h2 {
+        letter-spacing: -0.02em;
+      }
+      .subheading {
+        font-size: 1.125rem; /* text-lg */
+        font-weight: 600; /* font-semibold */
+        color: var(--color-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Body -->
+  <body class="bg-white">
+    
+    <!-- Page wrapper -->
+    <main class="page-wrapper">
+
+      <!-- Navbar -->
+      <header class="header navbar-sticky bg-white">
+        <div class="container px-4 sm:px-6 lg:px-8">
+          <nav class="flex items-center justify-between py-4">
+            <a href="#" class="flex items-center">
+              <i class="bi bi-arrow-up-right-circle-fill text-3xl text-primary mr-2"></i>
+              <div>
+                <span class="text-primary font-bold">ARROW</span>
+                <span class="text-dark font-bold">executive sales</span>
+              </div>
+            </a>
+            <div class="hidden lg:flex items-center space-x-8">
+              <a href="#courses" class="text-gray-600 hover:text-primary font-semibold">Courses</a>
+              <a href="#process" class="text-gray-600 hover:text-primary font-semibold">Our Process</a>
+              <a href="#benefits" class="text-gray-600 hover:text-primary font-semibold">Benefits</a>
+              <a href="#contact" class="text-gray-600 hover:text-primary font-semibold">Contact</a>
+            </div>
+            <div class="hidden lg:block">
+              <a href="#contact" class="btn btn-primary">
+                 <i class="bi bi-calendar-check mr-2"></i>
+                Book Evaluation
+              </a>
+            </div>
+            <div class="lg:hidden">
+              <button id="menu-toggle" class="text-dark focus:outline-none">
+                <i class="bi bi-list text-3xl"></i>
+              </button>
+            </div>
+          </nav>
+          <!-- Mobile Menu -->
+          <div id="mobile-menu" class="hidden lg:hidden">
+            <a href="#courses" class="block py-2 px-4 text-sm text-gray-600 hover:bg-light">Courses</a>
+            <a href="#process" class="block py-2 px-4 text-sm text-gray-600 hover:bg-light">Our Process</a>
+            <a href="#benefits" class="block py-2 px-4 text-sm text-gray-600 hover:bg-light">Benefits</a>
+            <a href="#contact" class="block py-2 px-4 text-sm text-gray-600 hover:bg-light">Contact</a>
+            <div class="p-4">
+              <a href="#contact" class="btn btn-primary w-full">
+                <i class="bi bi-calendar-check mr-2"></i>
+                Book Evaluation
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+
+      <!-- Hero section -->
+      <section id="hero" class="bg-light">
+        <div class="container px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="text-center lg:text-left">
+              <p class="subheading mb-3">Turning Training into Revenue</p>
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark mb-4 leading-tight">Win Your Dream Clients</h1>
+              <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0">Our high-impact sales training programs give you the confidence, skills, and process to land the accounts you've always wanted. It's time to turn training into measurable revenue.</p>
+              <a href="#contact" class="btn btn-primary text-lg">
+                <i class="bi bi-calendar-check mr-2"></i>
+                Book Your Sales DNA Evaluation
+              </a>
+            </div>
+            <div class="mt-10 lg:mt-0">
+              <img src="https://placehold.co/600x500/ffffff/1A2959?text=Hero+Image" class="w-full h-auto rounded-2xl shadow-xl" alt="Sales Team">
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Social Proof / Brands -->
+      <section class="py-16">
+        <div class="container px-4 sm:px-6 lg:px-8">
+            <h2 class="text-center text-sm font-bold uppercase text-gray-500 tracking-widest mb-8">Trusted by top-performing sales teams</h2>
+            <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-4">
+                <img src="https://placehold.co/154x40/f3f4f6/9ca3af?text=Brand+1" alt="Brand 1" class="h-8">
+                <img src="https://placehold.co/154x40/f3f4f6/9ca3af?text=Brand+2" alt="Brand 2" class="h-8">
+                <img src="https://placehold.co/154x40/f3f4f6/9ca3af?text=Brand+3" alt="Brand 3" class="h-8">
+                <img src="https://placehold.co/154x40/f3f4f6/9ca3af?text=Brand+4" alt="Brand 4" class="h-8">
+                <img src="https://placehold.co/154x40/f3f4f6/9ca3af?text=Brand+5" alt="Brand 5" class="h-8">
+            </div>
+        </div>
+      </section>
+
+      <!-- Problem/Solution -->
+       <section class="bg-light py-20 lg:py-24">
+        <div class="container px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="h1 text-3xl md:text-4xl font-extrabold text-dark mb-4">Why Most Sales Training Fails</h2>
+                <p class="text-lg text-gray-600">Research shows <strong>84% of traditional training content is forgotten within 90 days</strong>. Why? Because it's not applied, reinforced, and coached in the real world. At Arrow, we don't just "tick the box"—we build lasting skills that translate directly to closed deals.</p>
+            </div>
+        </div>
+       </section>
+
+
+      <!-- High-Impact Courses -->
+      <section id="courses" class="py-20 lg:py-24">
+        <div class="container px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="h1 text-3xl md:text-4xl font-extrabold text-dark mb-4">Our High-Impact Course Catalogue</h2>
+                <p class="text-lg text-gray-600">Designed for busy professionals. Choose a format that works for you.</p>
+            </div>
+            
+            <!-- Half-Day Courses -->
+            <div class="mb-16">
+                <h3 class="text-2xl md:text-3xl font-bold text-dark text-center mb-10">Half-Day High-Impact Sessions</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Course 1 -->
+                    <div class="course-card bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary/10 rounded-full p-3 flex-shrink-0"><i class='bi bi-lightbulb text-2xl text-primary'></i></div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-dark">Sales Mindset</h4>
+                                <p class="text-sm text-gray-500">Uncover Hidden Barriers</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 flex-grow">Build resilience, motivation, and self-awareness to push through challenges and sell without roadblocks.</p>
+                        <ul class="list-unstyled mb-4 mt-auto pt-4 text-sm">
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>3 x 60-minute virtual group sessions</li>
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>1 x 30-minute 1:1 coaching session</li>
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Weekly microlearning videos</li>
+                            <li class="d-flex align-items-center"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Weekly tasks and reflections</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary mt-4">Enquire Now</a>
+                    </div>
+                    <!-- Course 2 -->
+                    <div class="course-card bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary/10 rounded-full p-3 flex-shrink-0"><i class='bi bi-people text-2xl text-primary'></i></div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-dark">Relationship Building</h4>
+                                <p class="text-sm text-gray-500">Accelerate Trust, Win Faster</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 flex-grow">Win trust early, secure meetings with decision-makers and earn client loyalty that follows you wherever you go.</p>
+                        <ul class="list-unstyled mb-4 mt-auto pt-4 text-sm">
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>3 x 60-minute virtual group sessions</li>
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>1 x 30-minute 1:1 coaching session</li>
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Weekly microlearning videos</li>
+                            <li class="d-flex align-items-center"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Weekly tasks and reflections</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary mt-4">Enquire Now</a>
+                    </div>
+                    <!-- Course 3 -->
+                    <div class="course-card bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary/10 rounded-full p-3 flex-shrink-0"><i class='bi bi-gem text-2xl text-primary'></i></div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-dark">Selling Value</h4>
+                                <p class="text-sm text-gray-500">Stop Competing on Price</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 flex-grow">Protect margin by selling unique value and positioning your solution as the only logical choice.</p>
+                        <ul class="list-unstyled mb-4 mt-auto pt-4 text-sm">
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>3 x 60-minute virtual group sessions</li>
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>1 x 30-minute 1:1 coaching session</li>
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Weekly microlearning videos</li>
+                            <li class="d-flex align-items-center"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Weekly tasks and reflections</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary mt-4">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full-Day Courses -->
+            <div class="mt-16">
+                <h3 class="text-2xl md:text-3xl font-bold text-dark text-center mb-10">Full-Day Deep Dive Workshops</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Course 4 -->
+                    <div class="course-card bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary/10 rounded-full p-3 flex-shrink-0"><i class='bi bi-chat-dots text-2xl text-primary'></i></div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-dark">Consultative Selling</h4>
+                                <p class="text-sm text-gray-500">Ask, Listen, and Win</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 flex-grow">Use smart questioning and deep listening to uncover real buying motives and stand out from competitors.</p>
+                        <ul class="list-unstyled mb-4 mt-auto pt-4 text-sm">
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>5 x 60-minute virtual group sessions</li>
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>1 x 30-minute 1:1 coaching session</li>
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Weekly microlearning videos</li>
+                            <li class="d-flex align-items-center"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Weekly tasks and reflections</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary mt-4">Enquire Now</a>
+                    </div>
+                    <!-- Course 5 -->
+                    <div class="course-card bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary/10 rounded-full p-3 flex-shrink-0"><i class='bi bi-graph-up-arrow text-2xl text-primary'></i></div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-dark">Prospecting</h4>
+                                <p class="text-sm text-gray-500">Build a Pipeline That Closes</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 flex-grow">Target the right accounts, warm up cold calls, and maintain a steady flow of qualified opportunities.</p>
+                        <ul class="list-unstyled mb-4 mt-auto pt-4 text-sm">
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>5 x 60-minute virtual group sessions</li>
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>1 x 30-minute 1:1 coaching session</li>
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Weekly microlearning videos</li>
+                            <li class="d-flex align-items-center"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Weekly tasks and reflections</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary mt-4">Enquire Now</a>
+                    </div>
+                    <!-- Course 6 -->
+                    <div class="course-card bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary/10 rounded-full p-3 flex-shrink-0"><i class='bi bi-bullseye text-2xl text-primary'></i></div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-dark">Closing</h4>
+                                <p class="text-sm text-gray-500">Win More, Win Smarter</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 flex-grow">Spot decision points, remove roadblocks, and close naturally by following a milestone-driven process.</p>
+                        <ul class="list-unstyled mb-4 mt-auto pt-4 text-sm">
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>5 x 60-minute virtual group sessions</li>
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>1 x 30-minute 1:1 coaching session</li>
+                            <li class="d-flex align-items-center mb-2"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Weekly microlearning videos</li>
+                            <li class="d-flex align-items-center"><i class="bi bi-check-circle-fill text-green-500 mr-2"></i>Weekly tasks and reflections</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary mt-4">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
+
+      <!-- Our Process (Steps) -->
+      <section id="process" class="bg-light py-20 lg:py-24">
+        <div class="container px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="h1 text-3xl md:text-4xl font-extrabold text-dark">Our Proven 3-Step Process</h2>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-8 text-center">
+                <div>
+                    <h3 class="step-number text-8xl font-extrabold mb-2">1</h3>
+                    <h4 class="text-xl font-bold text-dark mb-2">Diagnose Before We Prescribe</h4>
+                    <p class="text-gray-600">We start with a Sales DNA Evaluation—a detailed analysis of your mindset and skills across 21 core sales competencies to find your biggest growth opportunities.</p>
+                </div>
+                <div>
+                    <h3 class="step-number text-8xl font-extrabold mb-2">2</h3>
+                    <h4 class="text-xl font-bold text-dark mb-2">Targeted, High-Impact Training</h4>
+                    <p class="text-gray-600">Based on your results, you get a tailored program with virtual sessions, 1:1 coaching, and practical tasks linked directly to your active sales opportunities.</p>
+                </div>
+                <div>
+                    <h3 class="step-number text-8xl font-extrabold mb-2">3</h3>
+                    <h4 class="text-xl font-bold text-dark mb-2">Measure, Adjust, Win</h4>
+                    <p class="text-gray-600">We revisit your Sales DNA to measure progress and fine-tune your approach. Our goal is to get you into the top 20% of sales performers.</p>
+                </div>
+            </div>
+        </div>
+      </section>
+
+
+      <!-- Benefits (Icon boxes) -->
+      <section id="benefits" class="py-20 lg:py-24">
+        <div class="container px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-dark">The ROI You Can Bank On</h2>
+                <p class="text-lg text-gray-600 mt-4">Sales training should be an investment that pays for itself. We'll help you:</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Item -->
+                <div class="text-center">
+                    <div class="inline-block bg-primary/10 rounded-full p-4 mb-4">
+                        <i class="bi bi-rocket-takeoff text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-dark">Get in Front of Decision-Makers Faster</h3>
+                </div>
+                <!-- Item -->
+                <div class="text-center">
+                    <div class="inline-block bg-primary/10 rounded-full p-4 mb-4">
+                        <i class="bi bi-clock-history text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-dark">Create Urgency So Opportunities Don't Stall</h3>
+                </div>
+                <!-- Item -->
+                <div class="text-center">
+                    <div class="inline-block bg-primary/10 rounded-full p-4 mb-4">
+                        <i class="bi bi-trophy text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-dark">Craft Compelling Reasons to Choose You</h3>
+                </div>
+                 <!-- Item -->
+                <div class="text-center">
+                    <div class="inline-block bg-primary/10 rounded-full p-4 mb-4">
+                        <i class="bi bi-shield-check text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-dark">Build Trust and Become a Strategic Partner</h3>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- Instructor -->
+      <section class="bg-light py-20 lg:py-24">
+        <div class="container px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center">
+                    <img src="https://placehold.co/500x500/ffffff/1A2959?text=Jason+Howes" alt="Jason Howes" class="w-full max-w-sm mx-auto rounded-2xl shadow-xl">
+                </div>
+                <div class="text-center lg:text-left">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-dark mb-4">Meet Your Coach</h2>
+                    <p class="text-lg text-gray-600 mb-6">Jason Howes is a seasoned sales leader dedicated to helping B2B companies grow revenue by attracting, recruiting, and coaching top-performing sales talent. With a proven track record, Jason's programs are designed to turn training into tangible results.</p>
+                    <a href="#contact" class="btn btn-primary text-lg">
+                        <i class="bi bi-person-check-fill mr-2"></i>
+                        Book an Evaluation with Jason
+                    </a>
+                </div>
+            </div>
+        </div>
+      </section>
+
+
+      <!-- Contact Form -->
+      <section id="contact" class="py-20 lg:py-24">
+        <div class="container px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mx-auto">
+              <div class="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 lg:p-10">
+                  <div class="text-center">
+                      <h2 class="text-3xl md:text-4xl font-extrabold text-dark mb-4">Ready to Win Your Dream Accounts?</h2>
+                      <p class="text-lg text-gray-600 mb-8">Your journey starts here. This evaluation, valued at $1,195, is the first step to designing a plan that delivers lasting skills. Let's uncover your potential.</p>
+                  </div>
+                  <form class="needs-validation" novalidate>
+                    <div class="grid sm:grid-cols-2 gap-x-6">
+                        <div class="form-group sm:col-span-1">
+                            <i class="bi bi-person form-icon"></i>
+                            <input type="text" id="name" class="form-input" placeholder=" " required>
+                            <label for="name" class="form-label">Full Name</label>
+                            <div class="invalid-tooltip">Please enter your name.</div>
+                        </div>
+                         <div class="form-group sm:col-span-1">
+                            <i class="bi bi-building form-icon"></i>
+                            <input type="text" id="company" class="form-input" placeholder=" " required>
+                            <label for="company" class="form-label">Company</label>
+                             <div class="invalid-tooltip">Please enter your company name.</div>
+                        </div>
+                        <div class="form-group sm:col-span-2">
+                            <i class="bi bi-envelope form-icon"></i>
+                            <input type="email" id="email" class="form-input" placeholder=" " required>
+                            <label for="email" class="form-label">Email address</label>
+                            <div class="invalid-tooltip">Please provide a valid email address.</div>
+                        </div>
+                        <div class="sm:col-span-2 text-center mt-4">
+                             <button type="submit" class="btn btn-primary text-lg">
+                                <i class="bi bi-calendar-check mr-2"></i>
+                                Book My Evaluation
+                             </button>
+                        </div>
+                    </div>
+                  </form>
+              </div>
+            </div>
+        </div>
+      </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+      <div class="container px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-3 gap-8">
+          <div class="lg:col-span-1">
+            <a href="#" class="flex items-center text-white text-xl font-bold mb-4">
+              <i class="bi bi-arrow-up-right-circle-fill text-3xl text-primary mr-2"></i>
+              <div>
+                <span class="text-primary">ARROW</span>
+                <span>executive sales</span>
+              </div>
+            </a>
+            <p class="text-gray-400 text-sm">Arrow Executive Sales helps B2B companies grow revenue by attracting, recruiting, and coaching top-performing sales talent.</p>
+          </div>
+          <div class="lg:col-span-2 grid grid-cols-2 md:grid-cols-3 gap-8">
+              <div>
+                <h6 class="font-bold uppercase text-gray-300 tracking-wider mb-4">Links</h6>
+                <ul class="space-y-2">
+                    <li><a href="#hero" class="text-gray-400 hover:text-primary transition">Home</a></li>
+                    <li><a href="#courses" class="text-gray-400 hover:text-primary transition">Courses</a></li>
+                    <li><a href="#process" class="text-gray-400 hover:text-primary transition">Our Process</a></li>
+                    <li><a href="#contact" class="text-gray-400 hover:text-primary transition">Contact</a></li>
+                  </ul>
+              </div>
+              <div>
+                <h6 class="font-bold uppercase text-gray-300 tracking-wider mb-4">Contact Us</h6>
+                 <ul class="space-y-2">
+                    <li><a href="mailto:jason.howes@arrowexec.com.au" class="text-gray-400 hover:text-primary transition">jason.howes@arrowexec.com.au</a></li>
+                    <li><a href="tel:1300903627" class="text-gray-400 hover:text-primary transition">1300 903 627</a></li>
+                </ul>
+              </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-500">
+          <p>&copy; All rights reserved. Made with &hearts;</p>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bi bi-arrow-up"></i>
+    </a>
+
+
+    <!-- Vendor Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Main Theme Script -->
+    <script>
+      (function () {
+          "use strict";
+
+          /**
+           * Handles the sticky navbar functionality.
+           */
+          const stickyNavbar = () => {
+              const navbar = document.querySelector(".navbar-sticky");
+              if (!navbar) return;
+
+              const handleScroll = () => {
+                  if (window.scrollY > 10) { 
+                      navbar.classList.add('navbar-stuck');
+                  } else {
+                      navbar.classList.remove('navbar-stuck');
+                  }
+              };
+
+              window.addEventListener("scroll", handleScroll);
+          };
+          
+          /**
+           * Toggles mobile menu
+           */
+          const mobileMenuToggle = () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(menuToggle && mobileMenu) {
+              menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+              });
+            }
+          };
+
+          /**
+           * Initializes Rellax parallax effect.
+           */
+          const initRellax = () => {
+              if (document.querySelector('.rellax')) {
+                  new Rellax('.rellax');
+              }
+          };
+
+          /**
+           * Handles the scroll-to-top button visibility.
+           */
+          const scrollTopButton = () => {
+              const scrollTop = document.querySelector(".btn-scroll-top");
+              if (scrollTop) {
+                  const scrollThreshold = 600;
+                  window.addEventListener("scroll", (e) => {
+                      if (e.currentTarget.scrollY > scrollThreshold) {
+                          scrollTop.classList.add("show");
+                      } else {
+                          scrollTop.classList.remove("show");
+                      }
+                  });
+              }
+          };
+          
+          /**
+           * Initializes Bootstrap form validation.
+           */
+          const formValidation = () => {
+              const forms = document.querySelectorAll('.needs-validation');
+              Array.prototype.slice.call(forms).forEach(function (form) {
+                  form.addEventListener('submit', function (event) {
+                      if (!form.checkValidity()) {
+                          event.preventDefault();
+                          event.stopPropagation();
+                      }
+                      form.classList.add('was-validated');
+                  }, false);
+              });
+          };
+
+          // Initialize all scripts on DOMContentLoaded
+          document.addEventListener('DOMContentLoaded', () => {
+              stickyNavbar();
+              mobileMenuToggle();
+              initRellax();
+              scrollTopButton();
+              formValidation();
+          });
+
+      })();
+    </script>
+  </body>
+</html>
