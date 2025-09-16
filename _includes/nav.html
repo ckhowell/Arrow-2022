@@ -117,10 +117,34 @@
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a href="{{site.baseurl}}/contact" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex"
-      rel="noopener">
-      <i class="bx bx-envelope fs-5 lh-1 me-1"></i>
-      &nbsp;Contact
-    </a>
+    <!-- MOBILE VIEW -->
+    <div class="d-flex d-lg-none d-sm-none order-lg-3">
+      <a href="tel:1300903527" class="nav-link px-2 ms-2">
+        <i class="bx bx-mobile-alt fs-2"></i>
+      </a>
+      <a href="https://arrowexec.membrain.com/meet/jasonhowes" class="nav-link px-2">
+        <i class="bx bx-chat fs-2"></i>
+      </a>
+    </div>
+    <!-- DESKTOP VIEW -->
+    <div class="d-none d-lg-flex order-lg-3">
+      <!-- CONTACT PHONE -->
+      <a href="tel:1300903527" class="d-flex align-items-center text-decoration-none ms-4">
+        <i class="bx bx-mobile-alt fs-2 text-primary"></i>
+        <div class="fs-sm text-nowrap ps-2">
+          <h6 class="fs-sm mb-0">Call us</h6>
+          <span class="text-nav">1300 903 527</span>
+        </div>
+      </a>
+      <!-- CONTACT BTN -->
+      <div class="d-flex align-items-center text-decoration-none ms-4">
+        <div class="fs-sm ps-2">
+          <a href="https://arrowexec.membrain.com/meet/jasonhowes" class="btn btn-primary w-100" rel="noopener">
+            <i class="bx bx-envelope fs-4 lh-1 me-1"></i>
+            &nbsp;Contact
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
