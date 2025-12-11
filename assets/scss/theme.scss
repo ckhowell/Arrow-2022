@@ -1,13 +1,25 @@
+// ====================================================================
+// CRITICAL FIX: These four Bootstrap core dependencies MUST be the
+// first lines to ensure all functions and mixins are defined.
+// ====================================================================
+@import '../vendor/bootstrap/scss/functions';
+@import '../vendor/bootstrap/scss/variables';
+@import '../vendor/bootstrap/scss/maps';
+@import '../vendor/bootstrap/scss/mixins';
+// ====================================================================
+
+
 /*
  * Silicon | Multipurpose Bootstrap 5 Template & UI Kit
  * Copyright 2022 Createx Studio
  * Theme styles
 */
 
+// 1. USER OVERRIDES & CONFIGURATION
 // User custom styles
 @import 'user';
 
-// User variables
+// User variables (for overriding Bootstrap)
 @import 'user-variables';
 
 
@@ -15,11 +27,8 @@
 @import 'variables';
 @import 'utilities';
 
-// Bootstrap
-@import '../vendor/bootstrap/scss/functions';
-@import '../vendor/bootstrap/scss/variables';
-@import '../vendor/bootstrap/scss/maps';
-@import '../vendor/bootstrap/scss/mixins';
+
+// 2. BOOTSTRAP COMPONENTS (The rest of the Bootstrap library)
 @import '../vendor/bootstrap/scss/utilities';
 @import '../vendor/bootstrap/scss/root';
 @import '../vendor/bootstrap/scss/reboot';
@@ -51,13 +60,38 @@
 @import '../vendor/bootstrap/scss/offcanvas';
 @import '../vendor/bootstrap/scss/placeholders';
 @import '../vendor/bootstrap/scss/helpers';
-@import '../vendor/bootstrap/scss/utilities/api';
 
-// Layout & componentss
-@import 'reboot';
-@import 'components';
+// 3. THEME COMPONENTS & VENDOR
+// Theme components
+@import 'theme/header';
+@import 'theme/search';
+@import 'theme/footer';
+@import 'theme/btn-scroll-top';
+@import 'theme/page-loading';
+@import 'theme/carousel';
+@import 'theme/swiper';
+@import 'theme/forms';
+@import 'theme/stepper';
+@import 'theme/image-compare';
+@import 'theme/pricing-switch';
+@import 'theme/parallax';
+@import 'theme/rellax';
+@import 'theme/masonry';
+@import 'theme/lightgallery';
+@import 'theme/nouislider';
+@import 'theme/prism';
+@import 'theme/vanilla-tilt';
+
+// Vendor
+@import 'vendor/lightgallery/lightgallery';
+@import 'vendor/lightgallery/lg-video';
+@import 'vendor/lightgallery/lg-share';
+@import 'vendor/lightgallery/lg-zoom';
+@import 'vendor/lightgallery/lg-thumbnail';
+@import 'vendor/lightgallery/lg-fullscreen';
 
 // Dark mode
 @import 'dark-mode';
 
-
+// Print styles
+@import 'print';
