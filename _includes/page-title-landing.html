@@ -567,65 +567,66 @@
               <div class="row pb-2">
                 <div class="col-sm-6 mb-4">
                   <label for="fn" class="form-label fs-base">First name</label>
-                  <input type="text" id="fn" class="form-control form-control-lg" required>
+                  <input type="text" id="fn" name="firstName" class="form-control form-control-lg" required>
                   <div class="invalid-feedback">Please enter your first name!</div>
                 </div>
                 <div class="col-sm-6 mb-4">
                   <label for="sn" class="form-label fs-base">Surname</label>
-                  <input type="text" id="sn" class="form-control form-control-lg" required>
+                  <input type="text" id="sn" name="lastName" class="form-control form-control-lg" required>
                   <div class="invalid-feedback">Please enter your surname!</div>
                 </div>
                 <div class="col-sm-6 mb-4">
                   <label for="email" class="form-label fs-base">Email address</label>
-                  <input type="email" id="email" class="form-control form-control-lg" required>
+                  <input type="email" id="email" name="email" class="form-control form-control-lg" required>
                   <div class="invalid-feedback">Please provide a valid email address!</div>
                 </div>
                 <div class="col-sm-6 mb-4">
                   <label for="phone" class="form-label fs-base">Phone</label>
-                  <input type="text" id="phone" class="form-control form-control-lg" required>
+                  <input type="text" id="phone" name="phone" class="form-control form-control-lg" required>
                   <div class="invalid-feedback">Please provide a valid phone number!</div>
                 </div>
                 <div class="col-sm-6 mb-4">
                   <label for="company" class="form-label fs-base">Company</label>
-                  <input type="text" id="company" class="form-control form-control-lg" required>
+                  <input type="text" id="company" name="company" class="form-control form-control-lg" required>
                   <div class="invalid-feedback">Please provide a company name!</div>
                 </div>
                 <div class="col-sm-6 mb-4">
                   <label for="title" class="form-label fs-base">Title</label>
-                  <input type="text" id="title" class="form-control form-control-lg" required>
+                  <input type="text" id="title" name="title" class="form-control form-control-lg" required>
                   <div class="invalid-feedback">Please provide your title!</div>
                 </div>
                 <div class="col-sm-6 mb-4">
-                    <label class="form-label" for="salespeople">Number of salespeople</label>
-                    <select class="form-select" id="salespeople" required="">
-                      <option value="">Number of salespeople...</option>
-                      <option value="1-5">1-5</option>
-                      <option value="6-10">6-10</option>
-                      <option value="11-15">11-15</option>
-                      <option value="16-20">16-20</option>
-                      <option value="21-30">21-30</option>
-                      <option value="30+">30+</option>
-                    </select>
-                    <div class="invalid-tooltip">How many salespeople?.</div>
-                    <div class="valid-tooltip">Looks good!</div>
+                  <label class="form-label" for="salespeople">Number of salespeople</label>
+                  <select class="form-select" id="salespeople" name="salespeople" required="">
+                    <option value="">Number of salespeople...</option>
+                    <option value="1-5">1-5</option>
+                    <option value="6-10">6-10</option>
+                    <option value="11-15">11-15</option>
+                    <option value="16-20">16-20</option>
+                    <option value="21-30">21-30</option>
+                    <option value="30+">30+</option>
+                  </select>
+                  <div class="invalid-tooltip">How many salespeople?.</div>
+                  <div class="valid-tooltip">Looks good!</div>
                 </div>
                 <div class="col-sm-6 mb-4">
-                    <label class="form-label" for="timeframe">Timeframe</label>
-                    <select class="form-select" id="timeframe" required="">
-                      <option value="">Choose a timeframe...</option>
-                      <option value="Within a month">Within a month</option>
-                      <option value="1-3 months">1-3 months</option>
-                      <option value="4-6 months">4-6 months</option>
-                      <option value="6-12 months">6-12 months</option>
-                      <option value="12 months or more">12 months or more</option>
-                      <option value="No deadline">No deadline</option>
-                    </select>
-                    <div class="invalid-tooltip">Please provide a timeframe.</div>
-                    <div class="valid-tooltip">Looks good!</div>
+                  <label class="form-label" for="timeframe">Timeframe</label>
+                  <select class="form-select" id="timeframe" name="timeframe" required="">
+                    <option value="">Choose a timeframe...</option>
+                    <option value="Within a month">Within a month</option>
+                    <option value="1-3 months">1-3 months</option>
+                    <option value="4-6 months">4-6 months</option>
+                    <option value="6-12 months">6-12 months</option>
+                    <option value="12 months or more">12 months or more</option>
+                    <option value="No deadline">No deadline</option>
+                  </select>
+                  <div class="invalid-tooltip">Please provide a timeframe.</div>
+                  <div class="valid-tooltip">Looks good!</div>
                 </div>
                 <div class="col-12 mb-4">
-                  <label for="yourMessage" class="form-label fs-base">Message <small class="text-muted">(optional)</small></label>
-                  <textarea id="yourMessage" class="form-control form-control-lg" rows="4"
+                  <label for="yourMessage" class="form-label fs-base">Message <small
+                      class="text-muted">(optional)</small></label>
+                  <textarea id="yourMessage" name="message" class="form-control form-control-lg" rows="4"
                     placeholder="Tell us about how we can help you"></textarea>
                 </div>
               </div>
