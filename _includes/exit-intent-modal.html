@@ -1,17 +1,17 @@
-
 <script>
   function addEvent(obj, evt, fn) {
-      if (obj.addEventListener) {
-          obj.addEventListener(evt, fn, false);
-      } else if (obj.attachEvent) {
-          obj.attachEvent("on" + evt, fn);
-      }    }    addEvent(document, 'mouseout', function (evt) {
-      var modalId = 'modalCentered';
-      if (evt.toElement === null && evt.relatedTarget === null && !localStorage.getItem('modal.' + modalId)) {
-          var modal = new bootstrap.Modal('#' + modalId);
-          modal.show();
-          localStorage.setItem('modal.' + modalId, '1');
-      }
+    if (obj.addEventListener) {
+      obj.addEventListener(evt, fn, false);
+    } else if (obj.attachEvent) {
+      obj.attachEvent("on" + evt, fn);
+    }
+  } addEvent(document, 'mouseout', function (evt) {
+    var modalId = 'modalCentered';
+    if (evt.toElement === null && evt.relatedTarget === null && !localStorage.getItem('modal.' + modalId)) {
+      var modal = new bootstrap.Modal('#' + modalId);
+      modal.show();
+      localStorage.setItem('modal.' + modalId, '1');
+    }
   });
 </script>
 
@@ -27,14 +27,19 @@
         <div class="row">
           <div class="col-md-6">
             <h1 class="display-3" style="line-height: 1;">STAY TUNED</h1>
-            <p class="fs-sm">Don't miss valuable insights and updates. Subscribe to blogs, webinars, and newsletters. Be the first to receive the latest content. </p>
+            <p class="fs-sm">Don't miss valuable insights and updates. Subscribe to blogs, webinars, and newsletters. Be
+              the first to receive the latest content. </p>
           </div>
           <div class="col-md-6">
             <img src="{{site.baseurl}}/assets/img/icons/stay-tuned.svg" width="300" alt="experience" />
           </div>
-        </div>      </div>
+        </div>
+      </div>
       <div class="modal-footer">
-        <form class="card-body needs-validation" novalidate="" name="Subscribe" method="POST" data-netlify="true" action="/success">
+        <form class="card-body needs-validation" novalidate="" name="Subscribe" method="POST" data-netlify="true"
+          action="/success">
+          <input type="hidden" name="subject" value="Newsletter Subscription Request">
+          <input type="hidden" name="Campaign" value="Newsletter">
           <div class="mb-4">
             <label for="name" class="form-label fs-base">Name</label>
             <input type="name" name="name" id="name" class="form-control form-control-lg" required="">
@@ -46,7 +51,8 @@
             <div class="invalid-feedback">Please provide a valid email address!</div>
           </div>
           <button type="submit" class="btn btn-primary shadow-primary btn-lg">SUBSCRIBE</button>
-        </form>      </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>

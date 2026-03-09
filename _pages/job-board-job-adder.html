@@ -25,7 +25,8 @@ ogimage: og-logo.png
       <div class="pe-lg-4 pe-xl-0">
         <img src="{{site.baseurl}}/assets/img/icons/resume.svg" alt="recruit icon">
         <h1 class="display-1 mb-2 mb-md-0 pt-3">Career Opportunities</h1>
-        <P class="lead pt-4">Explore the job openings below and start your journey towards a rewarding career with us today.</P>
+        <P class="lead pt-4">Explore the job openings below and start your journey towards a rewarding career with us
+          today.</P>
       </div>
     </div>
     <!-- Contact form -->
@@ -34,9 +35,12 @@ ogimage: og-logo.png
         <div class="bg-dark position-absolute top-0 start-0 w-100 h-100 rounded-3 d-none d-dark-mode-block"></div>
         <div class="card-body position-relative zindex-2">
           <h2 class="card-title pb-3 mb-4">Upload your Resume</h2>
-          <form class="row g-4 needs-validation" novalidate="" name="resume" method="POST" data-netlify="true" action="/success">
+          <form class="row g-4 needs-validation" novalidate="" name="resume" method="POST" data-netlify="true"
+            action="/success">
+            <input type="hidden" name="subject" value="Job Board Resume Upload">
+            <input type="hidden" name="Campaign" value="Job Board">
             <div class="col-12">
-              <label for="fn"  class="form-label fs-base">Full name</label>
+              <label for="fn" class="form-label fs-base">Full name</label>
               <input type="text" name="FullName" class="form-control form-control-lg" id="fn" required>
               <div class="invalid-feedback">Please enter your full name!</div>
             </div>
@@ -51,7 +55,7 @@ ogimage: og-logo.png
             </div>
             <label class="form-label fs-base">
               <span>Add Resume:</span>
-              <input name="Resume" type="file"/>
+              <input name="Resume" type="file" />
             </label>
             <div class="col-12 pt-2 pt-sm-3">
               <button type="submit" class="btn btn-lg btn-primary w-100 w-sm-auto">Submit</button>
@@ -67,34 +71,34 @@ ogimage: og-logo.png
 <section class="bg-secondary py-5">
   <div class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
     <div class="row">
-      
-        <!-- Item -->
-        
-          <div class="col-12 col-xs-12" id="ja-jobs-widget">
-      
+
+      <!-- Item -->
+
+      <div class="col-12 col-xs-12" id="ja-jobs-widget">
+
       </div>
     </div>
   </div>
 </section>
 
 
-    
-    <script>
-      var _jaJobsSettings = {
-        key: "AU6_ulrfruhnlewedoy7sjc7ofkds4",
-        jobListSettings: {
-          showSalary: true,
-          animateScrollOnPageChange: true
-        },
-        applicationFormSettings: {
-          useExternalApplicationForm: true,
-          showExternalApplicationFormInNewWindow: false
-        }
-      };
-    </script>
-    <script src="//apps.jobadder.com/widgets/v1/jobs.min.js"></script>
-    
+
+<script>
+  var _jaJobsSettings = {
+    key: "AU6_ulrfruhnlewedoy7sjc7ofkds4",
+    jobListSettings: {
+      showSalary: true,
+      animateScrollOnPageChange: true
+    },
+    applicationFormSettings: {
+      useExternalApplicationForm: true,
+      showExternalApplicationFormInNewWindow: false
+    }
+  };
+</script>
+<script src="//apps.jobadder.com/widgets/v1/jobs.min.js"></script>
 
 
-  </div>
+
+</div>
 </section>
