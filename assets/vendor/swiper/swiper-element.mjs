@@ -1,5 +1,5 @@
 /**
- * Swiper Custom Element 11.2.10
+ * Swiper Custom Element 11.2.6
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -7,13 +7,12 @@
  *
  * Released under the MIT License
  *
- * Released on: June 28, 2025
+ * Released on: March 19, 2025
  */
 
 import { S as Swiper } from './shared/swiper-core.mjs';
 import { p as paramsList, n as needsNavigation, a as needsPagination, b as needsScrollbar, u as updateSwiper, c as attrToProp } from './shared/update-swiper.mjs';
 import { g as getParams } from './shared/get-element-params.mjs';
-import { s as setInnerHTML } from './shared/utils.mjs';
 
 /* eslint-disable spaced-comment */
 
@@ -109,7 +108,7 @@ class SwiperContainer extends ClassToExtend {
     el.part = 'container';
 
     // prettier-ignore
-    setInnerHTML(el, `
+    el.innerHTML = `
       <slot name="container-start"></slot>
       <div class="swiper-wrapper" part="wrapper">
         <slot></slot>
@@ -132,7 +131,7 @@ class SwiperContainer extends ClassToExtend {
       ${needsScrollbar(this.passedParams) ? `
         <div part="scrollbar" class="swiper-scrollbar"></div>
       ` : ''}
-    `);
+    `;
     this.shadowRoot.appendChild(el);
     this.rendered = true;
   }

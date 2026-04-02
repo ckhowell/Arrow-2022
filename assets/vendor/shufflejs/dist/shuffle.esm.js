@@ -1,137 +1,116 @@
-function getDefaultExportFromCjs (x) {
-	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+var tinyEmitterExports = {};
+var tinyEmitter = {
+  get exports(){ return tinyEmitterExports; },
+  set exports(v){ tinyEmitterExports = v; },
+};
+
+function E () {
+  // Keep this empty so it's easier to inherit from
+  // (via https://github.com/lipsmack from https://github.com/scottcorgan/tiny-emitter/issues/3)
 }
 
-var tinyEmitter = {exports: {}};
+E.prototype = {
+  on: function (name, callback, ctx) {
+    var e = this.e || (this.e = {});
 
-var hasRequiredTinyEmitter;
+    (e[name] || (e[name] = [])).push({
+      fn: callback,
+      ctx: ctx
+    });
 
-function requireTinyEmitter () {
-	if (hasRequiredTinyEmitter) return tinyEmitter.exports;
-	hasRequiredTinyEmitter = 1;
-	function E () {
-	  // Keep this empty so it's easier to inherit from
-	  // (via https://github.com/lipsmack from https://github.com/scottcorgan/tiny-emitter/issues/3)
-	}
+    return this;
+  },
 
-	E.prototype = {
-	  on: function (name, callback, ctx) {
-	    var e = this.e || (this.e = {});
+  once: function (name, callback, ctx) {
+    var self = this;
+    function listener () {
+      self.off(name, listener);
+      callback.apply(ctx, arguments);
+    }
+    listener._ = callback;
+    return this.on(name, listener, ctx);
+  },
 
-	    (e[name] || (e[name] = [])).push({
-	      fn: callback,
-	      ctx: ctx
-	    });
+  emit: function (name) {
+    var data = [].slice.call(arguments, 1);
+    var evtArr = ((this.e || (this.e = {}))[name] || []).slice();
+    var i = 0;
+    var len = evtArr.length;
 
-	    return this;
-	  },
+    for (i; i < len; i++) {
+      evtArr[i].fn.apply(evtArr[i].ctx, data);
+    }
 
-	  once: function (name, callback, ctx) {
-	    var self = this;
-	    function listener () {
-	      self.off(name, listener);
-	      callback.apply(ctx, arguments);
-	    }
-	    listener._ = callback;
-	    return this.on(name, listener, ctx);
-	  },
+    return this;
+  },
 
-	  emit: function (name) {
-	    var data = [].slice.call(arguments, 1);
-	    var evtArr = ((this.e || (this.e = {}))[name] || []).slice();
-	    var i = 0;
-	    var len = evtArr.length;
+  off: function (name, callback) {
+    var e = this.e || (this.e = {});
+    var evts = e[name];
+    var liveEvents = [];
 
-	    for (i; i < len; i++) {
-	      evtArr[i].fn.apply(evtArr[i].ctx, data);
-	    }
+    if (evts && callback) {
+      for (var i = 0, len = evts.length; i < len; i++) {
+        if (evts[i].fn !== callback && evts[i].fn._ !== callback)
+          liveEvents.push(evts[i]);
+      }
+    }
 
-	    return this;
-	  },
+    // Remove event from queue to prevent memory leak
+    // Suggested by https://github.com/lazd
+    // Ref: https://github.com/scottcorgan/tiny-emitter/commit/c6ebfaa9bc973b33d110a84a307742b7cf94c953#commitcomment-5024910
 
-	  off: function (name, callback) {
-	    var e = this.e || (this.e = {});
-	    var evts = e[name];
-	    var liveEvents = [];
+    (liveEvents.length)
+      ? e[name] = liveEvents
+      : delete e[name];
 
-	    if (evts && callback) {
-	      for (var i = 0, len = evts.length; i < len; i++) {
-	        if (evts[i].fn !== callback && evts[i].fn._ !== callback)
-	          liveEvents.push(evts[i]);
-	      }
-	    }
+    return this;
+  }
+};
 
-	    // Remove event from queue to prevent memory leak
-	    // Suggested by https://github.com/lazd
-	    // Ref: https://github.com/scottcorgan/tiny-emitter/commit/c6ebfaa9bc973b33d110a84a307742b7cf94c953#commitcomment-5024910
+tinyEmitter.exports = E;
+tinyEmitterExports.TinyEmitter = E;
 
-	    (liveEvents.length)
-	      ? e[name] = liveEvents
-	      : delete e[name];
+var arrayParallel = function parallel(fns, context, callback) {
+  if (!callback) {
+    if (typeof context === 'function') {
+      callback = context;
+      context = null;
+    } else {
+      callback = noop;
+    }
+  }
 
-	    return this;
-	  }
-	};
+  var pending = fns && fns.length;
+  if (!pending) return callback(null, []);
 
-	tinyEmitter.exports = E;
-	tinyEmitter.exports.TinyEmitter = E;
-	return tinyEmitter.exports;
-}
+  var finished = false;
+  var results = new Array(pending);
 
-var tinyEmitterExports = requireTinyEmitter();
-var TinyEmitter = /*@__PURE__*/getDefaultExportFromCjs(tinyEmitterExports);
+  fns.forEach(context ? function (fn, i) {
+    fn.call(context, maybeDone(i));
+  } : function (fn, i) {
+    fn(maybeDone(i));
+  });
 
-var arrayParallel;
-var hasRequiredArrayParallel;
+  function maybeDone(i) {
+    return function (err, result) {
+      if (finished) return;
 
-function requireArrayParallel () {
-	if (hasRequiredArrayParallel) return arrayParallel;
-	hasRequiredArrayParallel = 1;
-	arrayParallel = function parallel(fns, context, callback) {
-	  if (!callback) {
-	    if (typeof context === 'function') {
-	      callback = context;
-	      context = null;
-	    } else {
-	      callback = noop;
-	    }
-	  }
+      if (err) {
+        callback(err, results);
+        finished = true;
+        return
+      }
 
-	  var pending = fns && fns.length;
-	  if (!pending) return callback(null, []);
+      results[i] = result;
 
-	  var finished = false;
-	  var results = new Array(pending);
+      if (!--pending) callback(null, results);
+    }
+  }
+};
 
-	  fns.forEach(context ? function (fn, i) {
-	    fn.call(context, maybeDone(i));
-	  } : function (fn, i) {
-	    fn(maybeDone(i));
-	  });
-
-	  function maybeDone(i) {
-	    return function (err, result) {
-	      if (finished) return;
-
-	      if (err) {
-	        callback(err, results);
-	        finished = true;
-	        return
-	      }
-
-	      results[i] = result;
-
-	      if (!--pending) callback(null, results);
-	    }
-	  }
-	};
-
-	function noop() {}
-	return arrayParallel;
-}
-
-var arrayParallelExports = requireArrayParallel();
-var parallel = /*@__PURE__*/getDefaultExportFromCjs(arrayParallelExports);
+function noop() {}
 
 /**
  * Always returns a numeric value, given a value. Logic from jQuery's `isNumeric`.
@@ -163,6 +142,7 @@ class Point {
     return a.x === b.x && a.y === b.y;
   }
 }
+var Point$1 = Point;
 
 class Rect {
   /**
@@ -251,7 +231,7 @@ class ShuffleItem {
     this.applyCss(ShuffleItem.Css.INITIAL);
     this.applyCss(this.isRTL ? ShuffleItem.Css.DIRECTION.rtl : ShuffleItem.Css.DIRECTION.ltr);
     this.scale = ShuffleItem.Scale.VISIBLE;
-    this.point = new Point();
+    this.point = new Point$1();
   }
   addClasses(classes) {
     classes.forEach(className => {
@@ -312,9 +292,10 @@ ShuffleItem.Scale = {
   VISIBLE: 1,
   HIDDEN: 0.001
 };
+var ShuffleItem$1 = ShuffleItem;
 
 let value = null;
-var testComputedSize = () => {
+var testComputedSize = (() => {
   if (value !== null) {
     return value;
   }
@@ -329,7 +310,7 @@ var testComputedSize = () => {
   value = Math.round(getNumber(width)) === 10;
   element.removeChild(e);
   return value;
-};
+});
 
 /**
  * Retrieve the computed style for an element, parsed as a float.
@@ -341,7 +322,8 @@ var testComputedSize = () => {
  *     will return 'auto' when the element doesn't have margins instead of
  *     the computed style.
  */
-function getNumberStyle(element, style, styles = window.getComputedStyle(element, null)) {
+function getNumberStyle(element, style) {
+  let styles = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : window.getComputedStyle(element, null);
   let value = getNumber(styles[style]);
 
   // Support IE<=11 and W3C spec.
@@ -577,20 +559,21 @@ function getShortColumn(positions, buffer) {
  * @param {number} buffer Vertical buffer for the height of items.
  * @return {Point}
  */
-function getItemPosition({
-  itemSize,
-  positions,
-  gridSize,
-  total,
-  threshold,
-  buffer
-}) {
+function getItemPosition(_ref) {
+  let {
+    itemSize,
+    positions,
+    gridSize,
+    total,
+    threshold,
+    buffer
+  } = _ref;
   const span = getColumnSpan(itemSize.width, gridSize, total, threshold);
   const setY = getAvailablePositions(positions, span, total);
   const shortColumnIndex = getShortColumn(setY, buffer);
 
   // Position the item
-  const point = new Point(gridSize * shortColumnIndex, setY[shortColumnIndex]);
+  const point = new Point$1(gridSize * shortColumnIndex, setY[shortColumnIndex]);
 
   // Update the columns array with the new values for each column.
   // e.g. before the update the columns could be [250, 0, 0, 0] for an item
@@ -684,7 +667,7 @@ function getCenteredPositions(itemRects, containerWidth) {
   // https://stackoverflow.com/a/10865042/373422
   // Then reset sort back to how the items were passed to this method.
   // Remove the wrapper object with index, map to a Point.
-  return centeredRows.flat().sort((a, b) => a.id - b.id).map(itemRect => new Point(itemRect.left, itemRect.top));
+  return centeredRows.flat().sort((a, b) => a.id - b.id).map(itemRect => new Point$1(itemRect.left, itemRect.top));
 }
 
 /**
@@ -703,7 +686,7 @@ function arrayUnique(x) {
 
 // Used for unique instance variables
 let id = 0;
-class Shuffle extends TinyEmitter {
+class Shuffle extends tinyEmitterExports {
   /**
    * Categorize, sort, and filter a responsive grid of items.
    *
@@ -711,7 +694,8 @@ class Shuffle extends TinyEmitter {
    * @param {Object} [options=Shuffle.options] Options object.
    * @constructor
    */
-  constructor(element, options = {}) {
+  constructor(element) {
+    let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     super();
     this.options = {
       ...Shuffle.options,
@@ -842,7 +826,9 @@ class Shuffle extends TinyEmitter {
    * @return {{visible: ShuffleItem[], hidden: ShuffleItem[]}}
    * @private
    */
-  _filter(category = this.lastFilter, collection = this.items) {
+  _filter() {
+    let category = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.lastFilter;
+    let collection = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.items;
     const set = this._getFilteredSets(category, collection);
 
     // Individually add/remove hidden/visible classes
@@ -923,10 +909,11 @@ class Shuffle extends TinyEmitter {
    * @param {{visible, hidden}} Object with visible and hidden arrays.
    * @private
    */
-  _toggleFilterClasses({
-    visible,
-    hidden
-  }) {
+  _toggleFilterClasses(_ref) {
+    let {
+      visible,
+      hidden
+    } = _ref;
     visible.forEach(item => {
       item.show();
     });
@@ -981,7 +968,7 @@ class Shuffle extends TinyEmitter {
 
     // Allow users to transition other properties if they exist in the `before`
     // css mapping of the shuffle item.
-    const cssProps = Object.keys(ShuffleItem.Css.HIDDEN.before).map(k => hyphenate(k));
+    const cssProps = Object.keys(ShuffleItem$1.Css.HIDDEN.before).map(k => hyphenate(k));
     const properties = positionProps.concat(cssProps).join();
     items.forEach(item => {
       item.element.style.transitionDuration = `${speed}ms`;
@@ -990,7 +977,7 @@ class Shuffle extends TinyEmitter {
     });
   }
   _getItems() {
-    return Array.from(this.element.children).filter(el => el.matches(this.options.itemSelector)).map(el => new ShuffleItem(el, this.options.isRTL));
+    return Array.from(this.element.children).filter(el => el.matches(this.options.itemSelector)).map(el => new ShuffleItem$1(el, this.options.isRTL));
   }
 
   /**
@@ -1074,7 +1061,8 @@ class Shuffle extends TinyEmitter {
    * @param {number} [containerWidth] Optionally specify a container width if
    *    it's already available.
    */
-  _setColumns(containerWidth = Shuffle.getSize(this.element).width) {
+  _setColumns() {
+    let containerWidth = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : Shuffle.getSize(this.element).width;
     const gutter = this._getGutterSize(containerWidth);
     const columnWidth = this._getColumnSize(containerWidth, gutter);
     let calculatedColumns = (containerWidth + gutter) / columnWidth;
@@ -1119,7 +1107,8 @@ class Shuffle extends TinyEmitter {
    * @param {string} name Event name.
    * @param {Object} [data={}] Optional object data.
    */
-  _dispatch(name, data = {}) {
+  _dispatch(name) {
+    let data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     if (this.isDestroyed) {
       return;
     }
@@ -1150,23 +1139,23 @@ class Shuffle extends TinyEmitter {
     let count = 0;
     items.forEach((item, i) => {
       function callback() {
-        item.applyCss(ShuffleItem.Css.VISIBLE.after);
+        item.applyCss(ShuffleItem$1.Css.VISIBLE.after);
       }
 
       // If the item will not change its position, do not add it to the render
       // queue. Transitions don't fire when setting a property to the same value.
-      if (Point.equals(item.point, itemPositions[i]) && !item.isHidden) {
-        item.applyCss(ShuffleItem.Css.VISIBLE.before);
+      if (Point$1.equals(item.point, itemPositions[i]) && !item.isHidden) {
+        item.applyCss(ShuffleItem$1.Css.VISIBLE.before);
         callback();
         return;
       }
       item.point = itemPositions[i];
-      item.scale = ShuffleItem.Scale.VISIBLE;
+      item.scale = ShuffleItem$1.Scale.VISIBLE;
       item.isHidden = false;
 
       // Clone the object so that the `before` object isn't modified when the
       // transition delay is added.
-      const styles = this.getStylesForTransition(item, ShuffleItem.Css.VISIBLE.before);
+      const styles = this.getStylesForTransition(item, ShuffleItem$1.Css.VISIBLE.before);
       styles.transitionDelay = `${this._getStaggerAmount(count)}ms`;
       this._queue.push({
         item,
@@ -1234,11 +1223,12 @@ class Shuffle extends TinyEmitter {
    * @param {ShuffleItem[]} collection Collection to shrink.
    * @private
    */
-  _shrink(collection = this._getConcealedItems()) {
+  _shrink() {
+    let collection = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this._getConcealedItems();
     let count = 0;
     collection.forEach(item => {
       function callback() {
-        item.applyCss(ShuffleItem.Css.HIDDEN.after);
+        item.applyCss(ShuffleItem$1.Css.HIDDEN.after);
       }
 
       // Continuing would add a transitionend event listener to the element, but
@@ -1248,13 +1238,13 @@ class Shuffle extends TinyEmitter {
       // after the transitionend event because the transitionend could be
       // canceled if another animation starts.
       if (item.isHidden) {
-        item.applyCss(ShuffleItem.Css.HIDDEN.before);
+        item.applyCss(ShuffleItem$1.Css.HIDDEN.before);
         callback();
         return;
       }
-      item.scale = ShuffleItem.Scale.HIDDEN;
+      item.scale = ShuffleItem$1.Scale.HIDDEN;
       item.isHidden = true;
-      const styles = this.getStylesForTransition(item, ShuffleItem.Css.HIDDEN.before);
+      const styles = this.getStylesForTransition(item, ShuffleItem$1.Css.HIDDEN.before);
       styles.transitionDelay = `${this._getStaggerAmount(count)}ms`;
       this._queue.push({
         item,
@@ -1385,7 +1375,7 @@ class Shuffle extends TinyEmitter {
 
     // Create an array of functions to be called.
     const callbacks = transitions.map(obj => this._getTransitionFunction(obj));
-    parallel(callbacks, this._movementFinished.bind(this));
+    arrayParallel(callbacks, this._movementFinished.bind(this));
   }
   _cancelMovement() {
     // Remove the transition end event for each listener.
@@ -1433,6 +1423,7 @@ class Shuffle extends TinyEmitter {
     if (!category || category && category.length === 0) {
       category = Shuffle.ALL_ITEMS; // eslint-disable-line no-param-reassign
     }
+
     this._filter(category);
 
     // Shrink each hidden item
@@ -1449,7 +1440,8 @@ class Shuffle extends TinyEmitter {
    * Gets the visible elements, sorts them, and passes them to layout.
    * @param {SortOptions} [sortOptions] The options object to pass to `sorter`.
    */
-  sort(sortOptions = this.lastSort) {
+  sort() {
+    let sortOptions = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.lastSort;
     if (!this.isEnabled) {
       return;
     }
@@ -1474,10 +1466,11 @@ class Shuffle extends TinyEmitter {
    * @param {boolean} [options.force=false] By default, `update` does nothing if the instance is disabled. Setting this
    *    to true forces the update to happen regardless.
    */
-  update({
-    recalculateSizes = true,
-    force = false
-  } = {}) {
+  update() {
+    let {
+      recalculateSizes = true,
+      force = false
+    } = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     if (this.isEnabled || force) {
       if (recalculateSizes) {
         this._setColumns();
@@ -1505,7 +1498,7 @@ class Shuffle extends TinyEmitter {
    * @param {Element[]} newItems Collection of new items.
    */
   add(newItems) {
-    const items = arrayUnique(newItems).map(el => new ShuffleItem(el, this.options.isRTL));
+    const items = arrayUnique(newItems).map(el => new ShuffleItem$1(el, this.options.isRTL));
 
     // Add classes and set initial positions.
     this._initItems(items);
@@ -1517,10 +1510,10 @@ class Shuffle extends TinyEmitter {
     const allSortedItemsSet = this._filter(this.lastFilter, sortedItems);
     const isNewItem = item => items.includes(item);
     const applyHiddenState = item => {
-      item.scale = ShuffleItem.Scale.HIDDEN;
+      item.scale = ShuffleItem$1.Scale.HIDDEN;
       item.isHidden = true;
-      item.applyCss(ShuffleItem.Css.HIDDEN.before);
-      item.applyCss(ShuffleItem.Css.HIDDEN.after);
+      item.applyCss(ShuffleItem$1.Css.HIDDEN.before);
+      item.applyCss(ShuffleItem$1.Css.HIDDEN.after);
     };
 
     // Layout all items again so that new items get positions.
@@ -1563,7 +1556,8 @@ class Shuffle extends TinyEmitter {
    * Enables shuffle again
    * @param {boolean} [isUpdateLayout=true] if undefined, shuffle will update columns and gutters
    */
-  enable(isUpdateLayout = true) {
+  enable() {
+    let isUpdateLayout = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
     this.isEnabled = true;
     if (isUpdateLayout) {
       this.update();
@@ -1694,7 +1688,8 @@ class Shuffle extends TinyEmitter {
    * @param {boolean} [includeMargins=false] Whether to include margins.
    * @return {{width: number, height: number}} The width and height.
    */
-  static getSize(element, includeMargins = false) {
+  static getSize(element) {
+    let includeMargins = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
     // Store the styles so that they can be used by others without asking for it again.
     const styles = window.getComputedStyle(element, null);
     let width = getNumberStyle(element, 'width', styles);
@@ -1751,7 +1746,7 @@ class Shuffle extends TinyEmitter {
     });
   }
 }
-Shuffle.ShuffleItem = ShuffleItem;
+Shuffle.ShuffleItem = ShuffleItem$1;
 Shuffle.ALL_ITEMS = 'all';
 Shuffle.FILTER_ATTRIBUTE_KEY = 'groups';
 
@@ -1820,7 +1815,7 @@ Shuffle.options = {
   // blurriness.
   roundTransforms: true
 };
-Shuffle.Point = Point;
+Shuffle.Point = Point$1;
 Shuffle.Rect = Rect;
 
 // Expose for testing. Hack at your own risk.

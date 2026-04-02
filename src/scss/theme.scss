@@ -7,12 +7,7 @@
 // User variables
 @use "user-variables";
 
-// Configuration & utilities
-@use "variables";
-@use "variables-dark";
-@use "utilities";
-
-// Bootstrap
+// Bootstrap core (MUST come before local utilities)
 @use "bootstrap/scss/functions";
 @use "bootstrap/scss/variables";
 @use "bootstrap/scss/variables-dark";
@@ -50,6 +45,14 @@
 @use "bootstrap/scss/placeholders";
 @use "bootstrap/scss/helpers";
 @use "bootstrap/scss/utilities/api";
+
+// Local utilities (COMMENTED OUT - causes Bootstrap mixin conflict)
+// The theme's _utilities.scss modifies Bootstrap's $utilities map but tries
+// to use it before Bootstrap variables are fully loaded, causing mixin errors.
+// All custom styling is done via inline CSS in _includes/head.html instead.
+// @use "variables";
+// @use "variables-dark";
+// @use "utilities";
 
 // Layout & components
 @use "root";

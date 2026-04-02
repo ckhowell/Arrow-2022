@@ -1,10 +1,10 @@
 <!-- Navbar -->
 <!-- Remove "fixed-top" class to make navigation bar scrollable with the page -->
 
-<header class="header navbar navbar-expand-lg {{page.nav}} navbar-sticky">
+<header class="header navbar navbar-expand-lg navbar-sticky navbar-transparent-on-hero">
   <div class="container px-3">
     <a href="{{site.baseurl}}/" class="navbar-brand pe-3">
-      <img src="{{site.baseurl}}/assets/img/{{page.logo}}" alt="Arrow Logo">
+      <img src="{{site.baseurl}}/assets/img/{{page.logo}}" alt="Arrow Logo" class="navbar-brand-logo">
     </a>
     <div id="navbarNav" class="offcanvas offcanvas-end {{page.colour}}">
       <div class="offcanvas-header border-bottom border-light">
@@ -53,11 +53,6 @@
                 </a>
               </li>
               <li>
-                <a href="{{site.baseurl}}/sales-recruitment/find-a-job" class="dropdown-item fade-page">
-                  Find a Job
-                </a>
-              </li>
-              <li>
                 <a href="{{site.baseurl}}/sales-recruitment/onboarding " class="dropdown-item fade-page">
                   Employee Onboarding
                 </a>
@@ -68,7 +63,7 @@
                 </a>
               </li>
               <li>
-                <a href="{{site.baseurl}}/sales-recruitment//DIY-recruitment" class="dropdown-item fade-page">
+                <a href="{{site.baseurl}}/sales-recruitment/DIY-recruitment" class="dropdown-item fade-page">
                   DIY Recruitment
                 </a>
               </li>
@@ -107,7 +102,7 @@
         </ul>
       </div>
       <div class="offcanvas-header border-top border-light">
-        <a href="{{site.url}}/contact" class="btn btn-primary w-100" rel="noopener">
+        <a href="{{site.url}}/contact" class="btn btn-primary rounded-pill w-100" rel="noopener">
           <i class="bx bx-envelope fs-4 lh-1 me-1"></i>
           &nbsp;Contact
         </a>
@@ -139,7 +134,8 @@
       <!-- CONTACT BTN -->
       <div class="d-flex align-items-center text-decoration-none ms-4">
         <div class="fs-sm ps-2">
-          <a href="https://arrowexec.membrain.com/meet/jasonhowes" class="btn btn-primary w-100" rel="noopener">
+          <a href="https://arrowexec.membrain.com/meet/jasonhowes" class="btn btn-primary rounded-pill w-100"
+            rel="noopener">
             <i class="bx bx-envelope fs-4 lh-1 me-1"></i>
             &nbsp;Contact
           </a>

@@ -3,6 +3,10 @@
 // Use this to override Bootstrap and Silicon variables
 //
 
-// Example of a variable override to change Silicon background color
-// Remove the "//" to comment it in and see it in action!
-// $body-bg: #f3f6ff;
+// Primary brand color - change this to your preferred color
+$primary: #900202;
+
+// Auto-generated color variations (optional - Bootstrap will generate these if not specified)
+$primary-text-emphasis: #009d82;
+$primary-bg-subtle: #ccf5f0;
+$primary-border-subtle: #99ebdf;

@@ -1,5 +1,7 @@
-@use 'lg-fonts';
-@use 'lg-theme-default';
+@import 'lg-variables';
+@import 'lg-mixins';
+@import 'lg-fonts';
+@import 'lg-theme-default';
 
 // Core
-@use 'lightgallery-core';
+@import 'lightgallery-core';

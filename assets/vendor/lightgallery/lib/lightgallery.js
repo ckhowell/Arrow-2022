@@ -617,22 +617,16 @@ var LightGallery = /** @class */ (function () {
                 // if first letter starts with . or # get the html form the jQuery object
                 var fL = subHtml.substring(0, 1);
                 if (fL === '.' || fL === '#') {
-                    try {
-                        if (this.settings.subHtmlSelectorRelative &&
-                            !this.settings.dynamic) {
-                            subHtml = lgQuery_1.$LG(this.items)
-                                .eq(index)
-                                .find(subHtml)
-                                .first()
-                                .html();
-                        }
-                        else {
-                            subHtml = lgQuery_1.$LG(subHtml).first().html();
-                        }
+                    if (this.settings.subHtmlSelectorRelative &&
+                        !this.settings.dynamic) {
+                        subHtml = lgQuery_1.$LG(this.items)
+                            .eq(index)
+                            .find(subHtml)
+                            .first()
+                            .html();
                     }
-                    catch (error) {
-                        console.warn("Error processing subHtml selector \"" + subHtml + "\"");
-                        subHtml = '';
+                    else {
+                        subHtml = lgQuery_1.$LG(subHtml).first().html();
                     }
                 }
             }

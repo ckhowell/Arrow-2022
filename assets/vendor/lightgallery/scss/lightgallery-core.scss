@@ -1,6 +1,5 @@
-@use 'lg-variables' as *;
-@use 'lg-mixins' as *;
-
+@import 'lg-variables';
+@import 'lg-mixins';
 // Clearfix
 .lg-group:after {
     content: '';

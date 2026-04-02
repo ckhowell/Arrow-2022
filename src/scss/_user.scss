@@ -3,6 +3,41 @@
 // Use this to write your custom SCSS
 //
 
+// Gilda Display font for headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6 {
+  font-family: "Gilda Display", serif;
+  font-weight: 400;
+}
+
+// Make all buttons pill-shaped
+.btn {
+  border-radius: 50rem;
+}
+
+// Ensure white text on dark background buttons for contrast
+.bg-dark .btn-primary,
+.bg-brand-900 .btn-primary,
+.bg-gradient-dark .btn-primary {
+  color: #fff;
+}
+
 .testimonial-section {
   background-color: #eef7f5;
 }

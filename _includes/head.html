@@ -1,4 +1,5 @@
 <head>
+  {% include seo.html %}
   {% include google.html %}
   <meta charset="utf-8">
   {% include og.html %}
@@ -11,7 +12,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="{{site.baseurl}}/assets/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="{{site.baseurl}}/assets/favicon/favicon-16x16.png">
   <link rel="manifest" href="{{site.baseurl}}/assets/favicon/site.webmanifest">
-  <link rel="mask-icon" href="{{site.baseurl}}/assets/favicon/safari-pinned-tab.svg" color="#6366f1">
+  <link rel="mask-icon" href="{{site.baseurl}}/assets/favicon/safari-pinned-tab.svg" color="#00c4a3">
   <link rel="shortcut icon" href="{{site.baseurl}}/assets/favicon/favicon.ico">
   <meta name="msapplication-TileColor" content="#080032">
   <meta name="msapplication-config" content="{{site.baseurl}}/assets/favicon/browserconfig.xml">
@@ -20,7 +21,217 @@
   <!-- Vendor Styles-->
   <link rel="stylesheet" media="screen" href="{{site.baseurl}}/assets/vendor/boxicons/css/boxicons.min.css" />
   <link rel="stylesheet" media="screen" href="{{site.baseurl}}/assets/vendor/swiper/swiper-bundle.min.css" />
-  <link rel="stylesheet" media="screen" href="{{site.baseurl}}/assets/vendor/lightgallery/css/lightgallery-bundle.min.css">
+  <link rel="stylesheet" media="screen"
+    href="{{site.baseurl}}/assets/vendor/lightgallery/css/lightgallery-bundle.min.css">
+
+  <!-- Google Fonts: Gilda Display for headings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap" rel="stylesheet">
+
+  <!-- Gilda Display for headings -->
+  <style>
+    /* h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    .display-1,
+    .display-2,
+    .display-3,
+    .display-4,
+    .display-5,
+    .display-6 {
+      font-family: "Gilda Display", serif;
+      font-weight: 400;
+    } */
+
+    /* Override primary color to #00c4a3 (teal/cyan) */
+    :root {
+      --si-primary: #028f77;
+    }
+
+    .text-primary {
+      color: # --si-primary: #028f77 !important;
+    }
+
+    .text-gradient-primary {
+      background: linear-gradient(90deg, #00c4a3 0%, #00a88a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .bg-primary {
+      background-color: #00c4a3 !important;
+    }
+
+    .btn-primary {
+      background-color: #00c4a3 !important;
+      border-color: #00c4a3 !important;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active {
+      background-color: #009d82 !important;
+      border-color: #009d82 !important;
+    }
+
+    .btn-outline-primary {
+      color: #00c4a3 !important;
+      border-color: #00c4a3 !important;
+    }
+
+    .btn-outline-primary:hover,
+    .btn-outline-primary:focus,
+    .btn-outline-primary:active {
+      background-color: #00c4a3 !important;
+      border-color: #00c4a3 !important;
+    }
+
+    .border-primary {
+      border-color: #00c4a3 !important;
+    }
+
+    .shadow-primary {
+      box-shadow: 0 0.5rem 1.25rem -0.3125rem rgba(0, 196, 163, 0.5) !important;
+    }
+
+    a {
+      color: #00c4a3;
+    }
+
+    a:hover {
+      color: #009d82;
+    }
+
+    /* Navbar transparent on dark heroes */
+    .navbar-transparent-on-hero {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030 !important;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .navbar-transparent-on-hero .container {
+      position: relative;
+    }
+
+    /* Transparent state for dark heroes */
+    .navbar-transparent-on-hero.navbar-transparent {
+      background: transparent !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .navbar-transparent-on-hero.navbar-transparent::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: transparent !important;
+      z-index: -1;
+    }
+
+    .navbar-transparent-on-hero.navbar-transparent .navbar-brand,
+    .navbar-transparent-on-hero.navbar-transparent .nav-link {
+      color: #ffffff !important;
+    }
+
+    .navbar-transparent-on-hero.navbar-transparent .navbar-brand-logo {
+      filter: brightness(0) invert(1) !important;
+    }
+
+    /* Scrolled state - white background */
+    .navbar-transparent-on-hero.navbar-scrolled {
+      background: #ffffff !important;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-transparent-on-hero.navbar-scrolled::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: #ffffff !important;
+      z-index: -1;
+    }
+
+    .navbar-transparent-on-hero.navbar-scrolled .navbar-brand,
+    .navbar-transparent-on-hero.navbar-scrolled .nav-link {
+      color: #192549 !important;
+    }
+
+    .navbar-transparent-on-hero.navbar-scrolled .navbar-brand-logo {
+      filter: none !important;
+    }
+
+    .navbar-transparent-on-hero.navbar-scrolled .offcanvas {
+      background: #ffffff !important;
+    }
+
+    /* Also apply to any navbar on pages with dark hero sections */
+    body:has(.hero-jina) .navbar-sticky,
+    body:has(.hero.bg-dark) .navbar-sticky,
+    body:has(.hero-diy) .navbar-sticky {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030 !important;
+    }
+
+    /* Ensure hero has space for fixed navbar */
+    .hero-jina {
+      padding-top: 100px !important;
+    }
+
+    /* Navbar phone number visibility */
+    .navbar-transparent-on-hero.navbar-transparent .text-nav,
+    .navbar-transparent-on-hero.navbar-transparent h6.fs-sm {
+      color: #ffffff !important;
+    }
+
+    .navbar-transparent-on-hero.navbar-transparent .bx-mobile-alt {
+      color: #ffffff !important;
+    }
+
+    .navbar-scrolled .text-nav,
+    .navbar-scrolled h6.fs-sm {
+      color: #192549 !important;
+    }
+
+    .navbar-scrolled .bx-mobile-alt {
+      color: #00c4a3 !important;
+    }
+
+    /* Footer background to match hero */
+    .footer.bg-gradient-dark {
+      background: linear-gradient(135deg, #0a0f1a 0%, #0f1a2f 50%, #1a2f4f 100%) !important;
+    }
+
+    .footer.bg-gradient-dark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0, 196, 163, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 196, 163, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+      pointer-events: none;
+    }
+  </style>
 
   <!-- Main Theme Styles + Bootstrap-->
   <link rel="stylesheet" media="screen" href="{{site.baseurl}}/assets/css/theme.min.css">
